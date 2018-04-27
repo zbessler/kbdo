@@ -1,0 +1,23 @@
+<div [ngClass]="['nav-bar', type]">
+    <a beamAnalytics="Header|Click|Logo" routerLink="/" class="logo"></a>
+    <span class="logo-subtext">Dr. Brusky D.O.</span>
+
+    <div beamAnalytics="Header|Click|Hamburger" [ngClass]="['hamburger', type]" (click)="toggleMenu()">
+        <div [@rotatedRight]="menuState" class="bar1"></div>
+        <div [@rotatedMiddle]="menuState" [ngClass]="['bar2', menuState]"></div>
+        <div [@rotatedLeft]="menuState" class="bar3"></div>
+    </div>
+
+    <div class="menu-container"  [@showMenu]="menuState">
+        <a beamAnalytics="Header|Click|Home" (click)="toggleMenu()" routerLink="/">Home</a>
+        <a beamAnalytics="Header|Click|Class Page" (click)="toggleMenu()" routerLink="/class">Class List</a>
+        <a beamAnalytics="Header|Click|Schedule" (click)="toggleMenu()" routerLink="/schedule">Schedule</a>
+        <a beamAnalytics="Header|Click|Lectures" (click)="toggleMenu()" routerLink="/lectures">Lectures</a>
+        <a beamAnalytics="Header|Click|Resume" (click)="toggleMenu()" routerLink="/resume">Resume</a>
+        
+        <a beamAnalytics="Header|Click|Signup" *ngIf="!loggedIn" (click)="toggleMenu()" routerLink="/signup">Signup</a>
+        <a beamAnalytics="Header|Click|Login" *ngIf="!loggedIn" (click)="toggleMenu()" routerLink="/login">Login</a>
+        <a beamAnalytics="Header|Click|Logout" *ngIf="loggedIn" (click)="logout()">Logout</a>
+    </div>
+    <div beamAnalytics="Header|Click|Out Of Menu" (click)="toggleMenu()" [ngClass]="['menu-screen', menuState]"></div>
+</div>

@@ -1,0 +1,291 @@
+@import '../../core/vars';
+
+.hero {
+    padding-top: ($header-height + 100px);
+    padding-bottom: 100px;
+    color: #fff;
+    background-color: #000;
+    min-height: 400px;
+
+        
+    .background0 {
+        background: url('../../assets/backgrounds/lecture-hall.jpg');
+        background-size: cover;
+        background-position-y: 0px;
+        background-position-x: center;
+        opacity: .5;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
+
+    .content {
+        position: relative;
+        width: 600px;
+        z-index: 1;
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 100px;
+    }
+
+    .kristen {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        margin-right: 100px;
+    }
+
+    .introHero {
+        font-size: 35px;
+
+        @media only screen and (min-width: $desktop-width) {
+            font-size: 45px;
+        }
+    }
+}
+
+.students {
+    padding-top: 35px;
+    padding-bottom: 0px;
+    color: $brown;
+
+    @media only screen and (min-width: $desktop-width) {
+        padding-bottom: 60px;
+    }
+
+    .block {
+        display: inline-block;
+        width: 230px;
+        vertical-align: top;
+        margin: 10px 30px 60px 30px;
+        opacity: 0;
+        transition: all .5s ease-in;
+        text-align: left;
+
+        &.fadeIn {
+            opacity: 1;
+        }
+
+        .header {
+            font-size: 37px;
+            color: $dark-green;
+        }
+        a {
+            text-decoration: underline;
+        }
+        .line {
+            display: block;
+            background-repeat: no-repeat;
+            margin: 15px -8px;
+            background-position-x: left;
+            color: $brown;
+            padding-left: 30px;
+
+            &.date {
+                background-image: url('../../assets/icons/calendar.svg');
+            }
+            &.skeletal {
+                background-image: url('../../assets/icons/skeleton.svg');
+            }
+            &.anatomy {
+                background-image: url('../../assets/icons/heart.svg');
+            }
+            &.family {
+                background-image: url('../../assets/icons/first-aid-kit.svg');
+            }
+            &.physiatry {
+                background-image: url('../../assets/icons/man-with-broken-leg.svg');
+            }
+            &.lecture {
+                background-image: url('../../assets/icons/conference.svg');
+            }
+            &.resources {
+                background-image: url('../../assets/icons/open-book.svg');
+            }
+            &.pnwu {
+                background-image: url('../../assets/icons/university.svg');
+            }
+        }
+    }
+}
+
+.work {
+    background-image: url('../../assets/backgrounds/bg_meettheteam.jpg');
+    color: #fff;
+    padding-top: 1px;
+
+    .content {
+
+        @media only screen and (min-width: 600px) {
+            padding-bottom: 30px;
+        }
+        @media only screen and (min-width: $desktop-width) {
+            width: 90%;
+            position: relative;
+        }
+    }
+
+    .sectionTitle {
+        margin-top: 100px;
+
+        @media only screen and (min-width: $desktop-width) {
+            margin-top: 120px;
+        }
+    }
+
+    .subtitle {
+        margin: auto;
+        margin-bottom: 60px;
+        width: 80%;
+
+        @media only screen and (min-width: $desktop-width) {
+            width: 550px;
+            margin-bottom: 80px;
+        }
+    }
+
+    .newsPanel {
+        height: 200px;
+        width: 80%;
+        background-color: #000;
+        overflow: hidden;
+        display: inline-block;
+        margin: auto;
+        margin-bottom: 20px;
+
+        @media only screen and (min-width: 600px) {
+            height: 200px;
+            width: 300px;
+            margin: 5px;
+        }
+
+
+        @media only screen and (min-width: $desktop-width) {
+            height: 300px;
+            width: 450px;
+            margin: 20px;
+            text-align: left;
+        }
+
+
+        &:hover {
+            .news-title {
+                top: 0px; 
+            }
+            .company {
+                opacity: 0;
+                height: 0;
+            }
+            .body {
+                top: 0px;
+            }
+            .img {
+                background-size: 700px;
+            }
+        }
+
+        .company, .news-title, .body {
+            position: relative;
+            z-index: 1;
+            transition: all .3s ease-in;
+        }
+
+        .company {
+            opacity: 1;
+            margin: 30px;
+        }
+
+        .news-title {
+            font-size: 17px;
+            margin: 30px;
+            top: 60px;
+
+            @media only screen and (min-width: $desktop-width) {
+                top: 110px;
+                font-size: 20px;
+            }
+        }
+
+        .body {
+            margin: 40px;
+            top: 350px;
+        }
+
+        .img {
+            background-position: center;
+            background-size: 600px;
+            opacity: .4;
+            position: absolute;
+            height: 200px;
+            width: 80%;
+            z-index: 0;
+            transition: all .3s ease-in;
+
+            @media only screen and (min-width: 600px) {
+                height: 200px;
+                width: 300px;
+            }
+
+            @media only screen and (min-width: $desktop-width) {
+                height: 300px;
+                width: 450px;
+            }
+        }
+    }
+}
+
+
+.hex-area {
+    -webkit-transform: perspective(600px) rotateX(60deg) scale(0.7) rotateZ(-20deg);
+    -moz-transform: perspective(600px) rotateX(60deg) scale(0.7) rotateZ(-20deg);
+    -ms-transform: perspective(600px) rotateX(60deg) scale(0.7) rotateZ(-20deg);
+    -o-transform: perspective(600px) rotateX(60deg) scale(0.7) rotateZ(-20deg);
+    transform: perspective(600px) rotateX(60deg) scale(0.7) rotateZ(-20deg);
+    position: fixed;
+    width: 440px;
+    right: -30px;
+    z-index: 1;
+    opacity: .15;        
+
+    @media only screen and (min-width: $tablet-width) {
+        -webkit-transform: perspective(600px) rotateX(60deg) rotateZ(-20deg);
+        -moz-transform: perspective(600px) rotateX(60deg) rotateZ(-20deg);
+        -ms-transform: perspective(600px) rotateX(60deg) rotateZ(-20deg);
+        -o-transform: perspective(600px) rotateX(60deg) rotateZ(-20deg);
+        transform: perspective(600px) rotateX(60deg) rotateZ(-20deg);
+        right: 100px;
+    }
+
+    @media not all and (min-resolution:.001dpcm)
+    { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+        display: none;
+    }}
+    .hex-row {
+        height: 200px;
+    }
+    .bg-hex {
+        @include hex(1, $gray, $green);
+
+        margin: 25px -4px 25px -4px;
+        transform: rotate(30deg);
+        display: inline-block;
+        position: relative;
+
+
+        &.up {
+            top: -6px;
+            text-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+    }
+}

@@ -1,0 +1,32 @@
+@import '../../core/vars';
+
+.login {
+    min-height: 400px;
+    background-image: url('../../assets/backgrounds/bg_dark.jpg');
+    background-size: cover;
+    background-position-x: center;
+    padding-top: 80px;
+    color: $brown;
+
+    .cta {
+        display: block;
+        margin: auto;
+        margin-top: 40px;
+        width: 301px;
+    }
+
+    .validator-error {
+        width: 301px;
+        margin: 6px auto -24px auto;
+        font-size: 15px;
+        text-align: center;
+
+        @media only screen and (min-width: 600px) {
+            width: 396px;
+        }
+        @media only screen and (min-width: 900px) {
+            width: 496px;
+        }
+    }
+}
+

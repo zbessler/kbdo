@@ -1,0 +1,44 @@
+@import '../../core/vars';
+
+.signup {
+    min-height: 800px;
+    background-image: url('../../assets/backgrounds/bg_dark.jpg');
+    background-size: cover;
+    background-position-x: center;
+    padding-top: 80px;
+    color: $brown;
+
+
+    .cta {
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        width: 301px;
+    }
+
+    .validator-error {
+        width: 301px;
+        text-align: center;
+
+        @media only screen and (min-width: 600px) {
+            width: 396px;
+        }
+        @media only screen and (min-width: 900px) {
+            width: 496px;
+        }
+    }
+    
+    .submit-error {
+        text-align: center;
+        font-size: 12px;
+    }
+    
+    re-captcha {
+        display: inline-block;
+        margin: auto;
+        margin-top: 10px;
+        // transform-origin:0 0;
+    }
+
+}
+

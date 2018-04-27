@@ -1,0 +1,16 @@
+
+<div class="contact panel">
+    <div class="form">
+        <div class="contact-title">{{fieldHeader}}</div>
+        <input class="email" [(ngModel)]="signupEmail" type="text" name="email" placeholder="Email" />
+    </div>
+    <button beamAnalytics="Footer|Click|Stay Connected" class="cta small" [disabled]="btn.disabled" (click)="addToSaleList()">{{btn.text}}</button>
+
+    <div class="social">
+        <a beamAnalytics="Footer|Click|Twitter" href="https://twitter.com/YourBeamProject" target="blank"><img src="../../assets/social/twitter.png"></a>
+        <a beamAnalytics="Footer|Click|Reddit" href="https://reddit.com" target="blank"><img src="../../assets/social/reddit.png"></a>
+        <a beamAnalytics="Footer|Click|Github" href="https://github.com" target="blank"><img src="../../assets/social/github.png"></a>
+    </div>
+    <div class="copyright">Copyright &copy; The B and B Family
+
+</div>

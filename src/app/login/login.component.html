@@ -1,0 +1,13 @@
+<beam-header [type]="'static'"></beam-header>
+<div class="login panel">
+    <form class="form-table" [formGroup]="loginForm">
+        <h1>Log in</h1>
+        <beam-input class="field" formControlName="email" [name]="'email'" [field]="loginForm.get('email')" placeholder="Your@email.com"></beam-input>
+        <beam-input class="field" formControlName="password" [name]="'password'" [field]="loginForm.get('password')" placeholder="********" type="password"></beam-input>
+        <p class="validator-error" *ngIf="loginInvalid">
+            Username or password not valid
+        </p>
+        <button class="cta" (click)="login()">Login</button>
+    </form>
+</div>
+<beam-footer></beam-footer>

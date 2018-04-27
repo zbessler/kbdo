@@ -1,0 +1,37 @@
+@import '../../core/vars';
+
+.help-page {
+    padding-top: $header-height+40;
+    padding-bottom: 70px;
+    width: 100%;
+    background-color: $brown;
+    color: #fff;
+
+    h1 {
+        font-size: 70px;
+        line-height: 1px;
+    }
+    h3 {
+        width: 400px;
+        margin: auto;
+    }
+
+    .body {
+        text-align: center;
+    }
+
+    .text {
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .cta {
+        margin-top: 20px;
+        width: 200px;
+        margin-bottom: 60px;
+    }
+
+    .small {
+        margin: 0px auto;
+    }
+}

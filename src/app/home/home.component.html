@@ -1,0 +1,99 @@
+<beam-header></beam-header>
+
+<!-- ***************************************************************** -->
+<!--                         Hex Backdrop                              -->
+<!-- ***************************************************************** -->
+<div class="hex-area">
+    <div class="hex-row">
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[0]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[0]"></span>
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[1]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[1]"></span>
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[2]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[2]"></span>
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[3]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[3]"></span>
+    </div>
+    <div class="hex-row">
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[4]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[4]"></span>
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[5]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[5]"></span>
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[6]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[6]"></span>
+        <span class="bg-hex" [@raiseHex]="hexCountNorm[7]"></span>
+        <span class="bg-hex" [@raiseHexOffset]="hexCountOffset[7]"></span>
+    </div>
+</div>
+
+<!-- ***************************************************************** -->
+<!--                              Hero                                 -->
+<!-- ***************************************************************** -->
+<div class="hero panel" id="home">
+<div class="background0"  [ngStyle]="{'background-position-y': bgPosY}"></div>
+<img class="kristen" src="../../assets/female-doc.png" />
+<div class="content">
+    <h1 class="introHero">Dr. Kristen Brusky, D.O.</h1>
+    <h3 class="title">Chair of Osteopathic Medicine at Pacific Northwest University</h3>
+    <p class="bio">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante ligula, viverra ut purus 
+        ac, tempus laoreet dolor. In hac habitasse platea dictumst. Sed maximus nulla eget ante 
+        pellentesque placerat. Praesent leo nisi, dapibus vitae consequat id, semper sed justo. 
+        Integer rutrum, purus et interdum suscipit, augue leo imperdiet nunc, sit amet fermentum 
+    </p>
+</div>
+</div>
+
+
+<!-- ***************************************************************** -->
+<!--                            Students                               -->
+<!-- ***************************************************************** -->
+<div class="students panel" id="students">
+<div class="content">
+    <h1 class="header">Students</h1>
+    <div class="block" beamAnimateOnScroll="fadeIn" offset="150">
+        <div class="header">Helpful Links</div>
+        <a class="line resources">Medical Resources</a>
+        <a class="line lecture">Lectures</a>
+        <a href="http://www.pnwu.edu/" target="_blank" class="line pnwu">PNWU.edu</a>
+    </div>
+    <div class="block" beamAnimateOnScroll="fadeIn" offset="200">
+        <div class="header">Class List</div>
+        <a class="line physiatry">Physiatry</a>
+        <a class="line family">Family Medicine</a>
+        <a class="line skeletal">Musculoskeletal System</a>
+        <a class="line anatomy">Gross Anatomy</a>
+    </div>
+
+    <div class="block" beamAnimateOnScroll="fadeIn" offset="200">
+        <div class="header">Office Hours</div>
+        <div class="line date">Monday 3pm - 5pm</div>
+        <div class="line date">Tueday 10am - 12am</div>
+        <div class="line date">Wednesday 3pm - 5pm</div>
+        <div class="line date">Thursday 12pm - 2pm</div>
+    </div>
+</div>
+</div>
+
+<!-- ***************************************************************** -->
+<!--                            Solutions                              -->
+<!-- ***************************************************************** -->
+<div class="work panel" id="work">
+<div class="content">
+    <h1 class="sectionTitle">Dr. Brusky's projects</h1>
+    <p class="subtitle">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante ligula, viverra ut purus 
+        ac, tempus laoreet dolor. In hac habitasse platea dictumst. Sed maximus nulla eget ante 
+    </p>
+
+    <a *ngFor="let news of newsData; let i = index" target="_blank" href="{{news.url}}"  class="newsPanel">
+        <div class="img" [ngStyle]="{'background-image': news.backgroundImage}"></div>
+        <h1 class="company">{{news.company}}</h1>
+        <h1 class="news-title">{{news.title}}</h1>
+        <div class="body">{{news.body}}</div>
+    </a>
+</div>
+</div>
+
+<beam-footer></beam-footer>
+

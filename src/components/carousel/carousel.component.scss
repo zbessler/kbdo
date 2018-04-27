@@ -1,0 +1,134 @@
+@import '../../core/vars';
+
+.leftRs, .rightRs {
+    display: none !important;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    padding: 16px;
+    background-color: rgba(110,196,150,.7);
+    background-image: url('../../assets/icons/left-arrow_white.png');
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+        background-color: rgba(255,255,255,.7);
+        background-image: url('../../assets/icons/left-arrow_green.png');
+    }
+
+    &:active {
+        background-color: rgba(110,196,150,.7);
+        background-image: url('../../assets/icons/left-arrow_white.png');
+    }
+}
+.leftRs {
+    left: 0px;
+}
+
+.rightRs {
+    transform: rotate(180deg);
+    right: 0;
+}
+
+@media only screen and (min-width: 700px) {
+    .rightRs, .leftRs {
+        display: inline-block !important;
+    }
+    // .leftRs {
+    //     left: 0;
+    // }
+    // .rightRs {
+    //     right: 0px;
+    // }
+}
+
+// @media only screen and (min-width: $desktop-width) {
+//     .leftRs {
+//         left: -45px;
+//     }
+//     .rightRs {
+//         right: -20px;
+//     }
+// }
+
+ngx-tile /deep/ {
+
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+
+    img {
+        width: 75%;
+    }
+    .tile {
+        box-shadow: none;
+    }
+    .header {
+        margin-left: 20px;
+    }
+    .title {
+        color: $brown;
+        padding: 5px 0px;
+        font-size: 25px;
+    }
+    .body {
+        width: 85%;
+        margin: auto;
+    }
+    .cta {
+        display: none;
+    }
+
+    @media only screen and (min-width: 700px) {
+        margin: auto;
+        text-align: left;
+
+        img {
+            width: 52%;
+        }
+        .content {
+            display: inline-block;
+            width: 47%;
+            text-align: left;
+            vertical-align: top;
+            padding-top: 50px;
+
+            .cta {
+                font-size: 14px;
+                padding: 7px 20px;
+                margin-top: 10px;
+                margin-left: 20px;
+                display: inline-block;
+            }
+            .title {
+                margin-top: 0px;
+                margin-left: 20px;
+            }
+
+            .header {
+                margin: 15px 0px 10px 20px;
+            }
+
+            .body {
+                width: initial;
+                margin-left: 20px;
+                margin-right: 60px;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1000px) {
+        img {
+            width: 44%;
+        }
+        .content {
+            width: 55%;
+        }
+    }
+}
+

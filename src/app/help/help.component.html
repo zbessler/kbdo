@@ -1,0 +1,22 @@
+<beam-header [type]="'static'"></beam-header>
+<div class="help-page">
+
+    <h1>FAQ</h1>
+    <h3>
+        Here are a few more details that might help you understand how things work around here.
+    </h3>
+    <button (click)="back($event)" class="cta">Go Back</button>
+
+
+    <div *ngFor="let help of helpData; let i = index" class="accordion">
+        <div id="{{help.url}}" beamAnalytics="Help|Click|Accordian {{state[help.url]}}|{{help.url}}" class="accordion-bar" (click)="openAccordion(help.url)">
+            {{help.title}}
+            <img [@rotatedState]="state[help.url]" class="arrow-down" src="../../assets/icon_carrot.png" />
+        </div>
+        <div class="body" [@openState]="state[help.url]">
+            <div class="text" [innerHTML]="help.body"></div>
+            <button (click)="back($event)" class="cta small">Go Back</button>
+        </div>
+    </div>
+</div>
+<beam-footer></beam-footer>

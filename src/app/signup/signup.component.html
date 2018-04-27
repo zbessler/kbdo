@@ -1,0 +1,25 @@
+<beam-header [type]="'static'"></beam-header>
+<div class="signup panel white-background">
+    <form class="form-table" [formGroup]="signupForm">
+        <h1>Sign up</h1>
+        <p class="subtext">You need an account to participate in the Beam platform and help the next world changing project</p>
+        <beam-input class="field" formControlName="firstName" [name]="'first name'" [field]="signupForm.get('firstName')" placeholder="Jane"></beam-input>
+        <beam-input class="field" formControlName="lastName" [name]="'last name'" [field]="signupForm.get('lastName')" placeholder="Doe"></beam-input>
+        <beam-input class="field" formControlName="email" [name]="'email'" [field]="signupForm.get('email')" placeholder="Your@email.com"></beam-input>
+        <beam-input class="field" formControlName="password" [name]="'password'" [field]="signupForm.get('password')" placeholder="********" type="password"></beam-input>
+        <beam-input class="field" formControlName="confirmPass" [name]="'confirm'" [field]="signupForm.get('confirmPass')" placeholder="********" type="password"></beam-input>
+        <beam-input class="field" formControlName="address" [name]="'address'" [field]="signupForm.get('address')" placeholder="123 Main st Hometown State 90210"></beam-input>
+       
+
+        <input formControlName="captcha" name="captcha" class="hidden" />
+        <re-captcha (resolved)="resolved($event)"></re-captcha>
+        <p class="validator-error" *ngIf="signupForm.get('captcha').hasError('required') && signupForm.get('captcha').touched">
+            Please complete the captcha
+        </p>
+        <button class="cta" (click)="signup()" [formGroup]="signupForm">Sign up</button>
+        <p class="validator-error submit-error" *ngIf="submitError">
+            {{submitError}}
+        </p>
+    </form>
+</div>
+<beam-footer></beam-footer>
