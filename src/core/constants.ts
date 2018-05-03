@@ -102,7 +102,6 @@ export const helpData = [
             for investment funds and other utility. By building Beam on the Ethereum blockchain  and Beam’s in-house
             due diligence, we can lower the barrier of progress for the most innovative clean technology companies.`
     },
-
 ];
 
 export const newsData = [
@@ -136,3 +135,591 @@ export const newsData = [
     //     body: 'BIOS-groep, a taxi company operating in Amsterdam, was an early adopter of electric vehicles and built the largest fleet of Tesla taxis back in 2014. Now they are updating to new Model X electric SUVs.'
     // }
 ];
+
+export const classes = [
+    {
+        displayName: 'Physiatry',
+        idName: 'physiatry',
+        iconName: 'man-with-broken-leg',
+        classNumber: '302',
+        days: ['Monday', 'Wednesday'],
+        time: '4pm to 5pm',
+        instructor: 'Dr. Brusky',
+        resources: [{
+            name: 'Textbook',
+            url: 'amazon.com',
+            type: 'BOOK'
+        },
+        {
+            name: 'really great paper',
+            url: 'google.com',
+            type: 'PAPER'
+        },
+        {
+            name: 'really great paper',
+            url: 'google.com',
+            type: 'PAPER'
+        },
+        {
+            name: 'really great paper',
+            url: 'google.com',
+            type: 'PAPER'
+        },
+        {
+            name: 'really great paper',
+            url: 'google.com',
+            type: 'PAPER'
+        }]
+    },
+    {
+        displayName: 'Family Medicine',
+        idName: 'family-medicine',
+        iconName: 'first-aid-kit',
+        classNumber: '322',
+        days: ['Monday', 'Wednesday'],
+        time: '12pm to 2pm',
+        instructor: 'Dr. Brusky',
+        resources: [{
+            name: 'Textbook',
+            url: 'amazon.com',
+            type: 'BOOK'
+        },
+        {
+            name: 'really great paper',
+            url: 'google.com',
+            type: 'PAPER'
+        }]
+    },
+    {
+        displayName: 'Musculoskeletal System',
+        idName: 'musculoskeletal-system',
+        iconName: 'skeleton',
+        classNumber: '322',
+        days: ['Monday', 'Wednesday'],
+        time: '12pm to 2pm',
+        instructor: 'Dr. Brusky',
+        resources: [{
+            name: 'Textbook',
+            url: 'amazon.com',
+            type: 'BOOK'
+        },
+        {
+            name: 'really great paper',
+            url: 'google.com',
+            type: 'PAPER'
+        }]
+    },
+    {
+        displayName: 'Gross Anatomy',
+        idName: 'gross-anatomy',
+        iconName: 'heart',
+        classNumber: '322',
+        days: ['Monday', 'Wednesday'],
+        time: '12pm to 2pm',
+        instructor: 'Dr. Brusky',
+        resources: [{
+            name: 'Textbook',
+            url: 'amazon.com',
+            type: 'BOOK'
+        },
+        {
+            name: 'really great paper',
+            url: 'google.com',
+            type: 'PAPER'
+        }]
+    }
+];
+
+export const ClassHomework = [
+    {
+        classIdName: 'physiatry',
+        homeworks: [
+            {
+                id: 0,
+                name: 'Special topic paper',
+                assigned: '4/5/2018',
+                due: '4/7/2018',
+                desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante ligula, viverra ut purus ac, tempus laoreet dolor. In hac habitasse platea dictumst. Sed maximus nulla eget ante pellentesque placerat.',
+                links: [{
+                    name: 'Topic list',
+                    url: 'google.com'
+                },
+                {
+                    name: 'Sample papers',
+                    url: 'google.com'
+                }],
+                type: 'PAPER'
+            },
+            {
+                id: 0,
+                classname: 'physiatry',
+                name: 'Reading',
+                assigned: '4/5/2018',
+                due: '4/7/2018',
+                desc: 'Read pages 23-43',
+                links: [],
+                type: 'READING'
+            }
+        ]
+    }
+];
+
+export const PhysiatrySyllabus = [
+    {
+        type: 'LECTURE',
+        date: {
+            day: 'Monday',
+            month: 'May',
+            number: 5
+        },
+        topics: ['This topic', 'A very super duper wicket long topic', 'The other thing'],
+        homework: [0, 1]
+    },
+    {
+        type: 'LECTURE',
+        date: {
+            day: 'Wednesday',
+            month: 'May',
+            number: 7
+        },
+        topics: ['This topic', 'A very super duper wicket long topic', 'The other thing'],
+        homework: [0, 1]
+    },
+    {
+        type: 'LECTURE',
+        date: {
+            day: 'Monday',
+            month: 'May',
+            number: 12
+        },
+        topics: ['This topic', 'A very super duper wicket long topic', 'The other thing'],
+        homework: [0, 1]
+    },
+    {
+        type: 'TEST',
+        date: {
+            day: 'Wednesday',
+            month: 'May',
+            number: 14
+        },
+    },
+    {
+        type: 'LECTURE',
+        date: {
+            day: 'Monday',
+            month: 'May',
+            number: 19
+        },
+        topics: ['This topic', 'A very super duper wicket long topic', 'The other thing'],
+        homework: [0, 1]
+    }
+];
+
+export const ClassData = [
+    {
+        "displayName": "Physiatry",
+        "idName": "physiatry",
+        "iconName": "man-with-broken-leg",
+        "classNumber": "302",
+        "days": ["Monday", "Wednesday"],
+        "time": "4pm to 5pm",
+        "instructor": "Dr. Brusky",
+        "resources": [{
+            "name": "Textbook",
+            "url": "amazon.com",
+            "type": "BOOK"
+        },
+        {
+            "name": "really great paper",
+            "url": "google.com",
+            "type": "PAPER"
+        },
+        {
+            "name": "really great paper",
+            "url": "google.com",
+            "type": "PAPER"
+        },
+        {
+            "name": "really great paper",
+            "url": "google.com",
+            "type": "PAPER"
+        },
+        {
+            "name": "really great paper",
+            "url": "google.com",
+            "type": "PAPER"
+        }],
+        "homeworks": [
+            {
+                "id": 0,
+                "name": "Special topic paper",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante ligula, viverra ut purus ac, tempus laoreet dolor. In hac habitasse platea dictumst. Sed maximus nulla eget ante pellentesque placerat.",
+                "links": [{
+                    "name": "Topic list",
+                    "url": "google.com"
+                },
+                {
+                    "name": "Sample papers",
+                    "url": "google.com"
+                }],
+                "type": "PAPER"
+            },
+            {
+                "id": 0,
+                "classname": "physiatry",
+                "name": "Reading",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Read pages 23-43",
+                "links": [],
+                "type": "READING"
+            }
+        ],
+        "syllabus": [
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 5
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 7
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 12
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "TEST",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 14
+                },
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 19
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            }
+        ]
+    },
+
+    {
+        "displayName": "Family Medicine",
+        "idName": "family-medicine",
+        "iconName": "first-aid-kit",
+        "classNumber": "322",
+        "days": ["Monday", "Wednesday"],
+        "time": "12pm to 2pm",
+        "instructor": "Dr. Brusky",
+        "resources": [{
+            "name": "Textbook",
+            "url": "amazon.com",
+            "type": "BOOK"
+        },
+        {
+            "name": "really great paper",
+            "url": "google.com",
+            "type": "PAPER"
+        }],
+        "homeworks": [
+            {
+                "id": 0,
+                "name": "Special topic paper",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante ligula, viverra ut purus ac, tempus laoreet dolor. In hac habitasse platea dictumst. Sed maximus nulla eget ante pellentesque placerat.",
+                "links": [{
+                    "name": "Topic list",
+                    "url": "google.com"
+                },
+                {
+                    "name": "Sample papers",
+                    "url": "google.com"
+                }],
+                "type": "PAPER"
+            },
+            {
+                "id": 0,
+                "classname": "physiatry",
+                "name": "Reading",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Read pages 23-43",
+                "links": [],
+                "type": "READING"
+            }
+        ],
+        "syllabus": [
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 5
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 7
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 12
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "TEST",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 14
+                },
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 19
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            }
+        ]
+    },
+
+    {
+        "displayName": "Musculoskeletal System",
+        "idName": "musculoskeletal-system",
+        "iconName": "skeleton",
+        "classNumber": "322",
+        "days": ["Monday", "Wednesday"],
+        "time": "12pm to 2pm",
+        "instructor": "Dr. Brusky",
+        "resources": [{
+            "name": "Textbook",
+            "url": "amazon.com",
+            "type": "BOOK"
+        },
+        {
+            "name": "really great paper",
+            "url": "google.com",
+            "type": "PAPER"
+        }],
+        "homeworks": [
+            {
+                "id": 0,
+                "name": "Special topic paper",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante ligula, viverra ut purus ac, tempus laoreet dolor. In hac habitasse platea dictumst. Sed maximus nulla eget ante pellentesque placerat.",
+                "links": [{
+                    "name": "Topic list",
+                    "url": "google.com"
+                },
+                {
+                    "name": "Sample papers",
+                    "url": "google.com"
+                }],
+                "type": "PAPER"
+            },
+            {
+                "id": 0,
+                "classname": "physiatry",
+                "name": "Reading",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Read pages 23-43",
+                "links": [],
+                "type": "READING"
+            }
+        ],
+        "syllabus": [
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 5
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 7
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 12
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "TEST",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 14
+                },
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 19
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            }
+        ]
+    },
+
+    {
+        "displayName": "Gross Anatomy",
+        "idName": "gross-anatomy",
+        "iconName": "heart",
+        "classNumber": "322",
+        "days": ["Monday", "Wednesday"],
+        "time": "12pm to 2pm",
+        "instructor": "Dr. Brusky",
+        "resources": [{
+            "name": "Textbook",
+            "url": "amazon.com",
+            "type": "BOOK"
+        },
+        {
+            "name": "really great paper",
+            "url": "google.com",
+            "type": "PAPER"
+        }],
+        "homeworks": [
+            {
+                "id": 0,
+                "name": "Special topic paper",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante ligula, viverra ut purus ac, tempus laoreet dolor. In hac habitasse platea dictumst. Sed maximus nulla eget ante pellentesque placerat.",
+                "links": [{
+                    "name": "Topic list",
+                    "url": "google.com"
+                },
+                {
+                    "name": "Sample papers",
+                    "url": "google.com"
+                }],
+                "type": "PAPER"
+            },
+            {
+                "id": 0,
+                "classname": "physiatry",
+                "name": "Reading",
+                "assigned": "4/5/2018",
+                "due": "4/7/2018",
+                "desc": "Read pages 23-43",
+                "links": [],
+                "type": "READING"
+            }
+        ],
+        "syllabus": [
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 5
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 7
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 12
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            },
+            {
+                "type": "TEST",
+                "date": {
+                    "day": "Wednesday",
+                    "month": "May",
+                    "number": 14
+                },
+            },
+            {
+                "type": "LECTURE",
+                "date": {
+                    "day": "Monday",
+                    "month": "May",
+                    "number": 19
+                },
+                "topics": ["This topic", "A very super duper wicket long topic", "The other thing"],
+                "homework": [0, 1]
+            }
+        ]
+    }
+]

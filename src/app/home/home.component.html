@@ -53,24 +53,23 @@
     <h1 class="header">Students</h1>
     <div class="block" beamAnimateOnScroll="fadeIn" offset="150">
         <div class="header">Helpful Links</div>
-        <a class="line resources">Medical Resources</a>
-        <a class="line lecture">Lectures</a>
-        <a href="http://www.pnwu.edu/" target="_blank" class="line pnwu">PNWU.edu</a>
+        <a class="line open-book-icon">Medical Resources</a>
+        <a class="line conference-icon">Lectures</a>
+        <a href="http://www.pnwu.edu/" target="_blank" class="line university-icon">PNWU.edu</a>
     </div>
     <div class="block" beamAnimateOnScroll="fadeIn" offset="200">
         <div class="header">Class List</div>
-        <a class="line physiatry">Physiatry</a>
-        <a class="line family">Family Medicine</a>
-        <a class="line skeletal">Musculoskeletal System</a>
-        <a class="line anatomy">Gross Anatomy</a>
+        <a *ngFor="let c of classes"
+           [ngClass]="['line', c.iconName + '-icon']" 
+           [routerLink]="['/class/', c.idName]">{{c.displayName}}</a>
     </div>
 
     <div class="block" beamAnimateOnScroll="fadeIn" offset="200">
         <div class="header">Office Hours</div>
-        <div class="line date">Monday 3pm - 5pm</div>
-        <div class="line date">Tueday 10am - 12am</div>
-        <div class="line date">Wednesday 3pm - 5pm</div>
-        <div class="line date">Thursday 12pm - 2pm</div>
+        <div class="line calendar-icon">Monday 3pm - 5pm</div>
+        <div class="line calendar-icon">Tueday 10am - 12am</div>
+        <div class="line calendar-icon">Wednesday 3pm - 5pm</div>
+        <div class="line calendar-icon">Thursday 12pm - 2pm</div>
     </div>
 </div>
 </div>

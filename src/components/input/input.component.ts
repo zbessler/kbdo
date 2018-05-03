@@ -28,7 +28,9 @@ export class BeamInputComponent implements ControlValueAccessor {
     propagateChange = (_: any) => {};
     propagateTouch = (_: any) => {};
 
-    constructor() {}
+    constructor() {
+        const a = 0;
+    }
 
     onChange(newValue): void {
         this.data = newValue;
@@ -65,6 +67,24 @@ export class BeamInputComponent implements ControlValueAccessor {
 
     registerOnTouched(fn): void {
         this.propagateTouch = fn;
+    }
+
+}
+
+@Component({
+    selector: 'beam-input-noform',
+    templateUrl: 'input-noform.component.html',
+    styleUrls: ['./input.component.scss'],
+})
+export class BeamInputNoFormComponent  {
+
+    @Input() name: string;
+    @Input() type: string;
+    @Input() placeholder = '';
+    @Input() data: any;
+
+    constructor() {
+        const a = 0;
     }
 
 }

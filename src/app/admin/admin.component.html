@@ -1,12 +1,46 @@
-<div class="user-info">
-    You are an Admin<br /><br />
+<div class="admin panel">
 
-    Id: {{user._id}} <br />
-    Email: {{user.email}} <br />
-    Address: {{user.address}} <br />
-    First Name: {{user.firstName}} <br />
-    Last Name: {{user.lastName}} <br />
-    Phone Verified: {{user.phoneVerified}} <br />
-    Email Verified: {{user.emailVerified}} <br />
-    Address Verified: {{user.addressVerified}} <br />
+    <h1 class="title">Admin Panel</h1>
+    <div class="subtitle">Update your class data here!</div>
+
+
+    <div class="form-table" *ngFor="let class of classData">
+        <h1>Class Data</h1>
+        <beam-input-noform class="field" [name]="'class name'" placeholder="Physiatry" [(data)]="class.displayName"></beam-input-noform>
+        <beam-input-noform class="field" [name]="'number'" placeholder="101" [(data)]="class.classNumber"></beam-input-noform>
+        <beam-input-noform class="field" [name]="'days'" placeholder="Monday, Wednesday" [(data)]="class.days"></beam-input-noform>
+        <beam-input-noform class="field" [name]="'time'" placeholder="4pm to 5pm" [(data)]="class.time"></beam-input-noform>
+        <beam-input-noform class="field" [name]="'professor'" placeholder="Dr. Brusky" [(data)]="class.instructor"></beam-input-noform>
+
+        <h3>Class Resources</h3>
+        <div class="resource" *ngFor="let res of class.resources">
+            <beam-input-noform class="field" [name]="'name'" placeholder="Textbook" [(data)]="res.name"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'url'" placeholder="Google.com" [(data)]="res.url"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'type'" placeholder="BOOK" [(data)]="res.type"></beam-input-noform>
+            <button class="cta small">Remove Resource</button>
+        </div>
+        <button class="cta small">Add New Resource</button>
+
+        <h3>Class Syllabus</h3>
+        <div class="resource" *ngFor="let syll of class.syllabus">
+            <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="syll.type"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'day'" placeholder="Wednesday" [(data)]="syll.date.day"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'month'" placeholder="March" [(data)]="syll.date.month"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'number'" placeholder="31" [(data)]="syll.date.number"></beam-input-noform>
+            {{syll.topics}}
+
+            <!-- <div>Topics</div>
+            <div *ngFor="let topic of syll.topics">
+                <beam-input-noform class="field" [name]="'topic'" placeholder="LECTURE" [(data)]="topic"></beam-input-noform>
+            </div> -->
+<!--             <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
+            <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform> -->
+
+        </div>
+
+    </div>
+
 </div>

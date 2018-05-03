@@ -15,11 +15,6 @@
 
     &.base {
         background-color: rgba(0,0,0,0);
-        .logo {
-            background-image: url('../../assets/icons/heart.svg');
-            background-color: transparent;
-            border-radius: 0px;
-        }
 
         @media only screen and (min-width: $desktop-width) {
             a {
@@ -30,7 +25,7 @@
     &.scrolled, &.static {
         background-color: $brown;
         .logo {
-            background-image: url('../../assets/icons/heart.svg');
+            fill: $dark-green;
         }
 
         .logo-subtext {
@@ -49,8 +44,7 @@
         height: 50px;
         display: inline-block;
         background-size: cover;
-        background-color: $dark-green;
-        border-radius: 999px;
+        fill: #000;
         margin: 8px;
         transition: all 0.5s ease;
     }
@@ -97,7 +91,7 @@
         position: absolute;
         right: 0;
         width: 100%;
-        overflow: hidden;
+        // overflow: hidden;
 
         @media only screen and (min-width: $desktop-width) {
             background: none;
@@ -110,7 +104,7 @@
             text-align: right;
         }
 
-        a {
+        .top-level {
             font-size: 22px;
             display: block;
             margin: 8px 10px;
@@ -133,6 +127,39 @@
                     line-height: 2.3;
                     color: $dark-green;
                 }
+            }
+        }
+    }
+
+    .class-menu:hover .class-list {
+        display: block;
+    }
+
+    .class-list {
+        display: none;
+        position: fixed;
+        background-color: $brown;
+        margin-left: -52px;
+
+        .icon {
+            width: 35px;
+            top: 10px;
+            position: relative;
+            margin-right: 5px;
+            fill: red;
+            // stroke: blue;
+        }
+
+        .line {
+            display: block;
+            text-align: left;
+            margin: 5px;
+            margin-left: 13px;
+            background-repeat: no-repeat;
+
+            &:hover {
+                color: $dark-green;
+                fill: red;
             }
         }
     }

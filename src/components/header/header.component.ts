@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 
 import { AuthService } from '../../factories/auth.service';
+import * as Constants from '../../core/constants';
 
 @Component({
     selector: 'beam-header',
@@ -40,6 +41,8 @@ export class HeaderComponent {
 
     public menuState = 'closed';
     public loggedIn: boolean;
+    private classes = Constants.classes;
+
     @Input() type = 'base';
 
     constructor(

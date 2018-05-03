@@ -1,0 +1,26 @@
+<beam-header [type]="'static'"></beam-header>
+<div class="homework panel white-background">
+
+    <h1 class="class-name">{{classData.displayName}} {{classData.classNumber}}</h1>
+    <div class="instructor">with {{classData.instructor}}</div>
+    <div class="time">
+        <span *ngFor="let day of classData.days; let i = index">
+            {{day}}<span *ngIf="classData.days.length - 1 !== i"> and</span></span>, 
+        {{classData.time}}
+    </div>
+
+    <div class="form-table syllabus">
+        <h1 class="homework-title">{{homeworkData.name}}</h1>
+        <div class="assigned-text">Assigned: <span class="date">{{homeworkData.assigned}}</span></div>
+        <div class="due-text">Due: <span class="date">{{homeworkData.due}}</span></div>
+        <h3>Homework Description</h3>
+        <div class="desc">{{homeworkData.desc}}</div>
+        <div *ngFor="let link of homeworkData.links; let i = index">
+            <a href="{{link.url}}">{{link.name}}</a>
+        </div>
+
+        <button class="cta" [routerLink]="['/class/', classData.idName]">Back to Class</button>
+    </div>
+
+</div>
+<beam-footer></beam-footer>

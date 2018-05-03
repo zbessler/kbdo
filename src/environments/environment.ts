@@ -8,5 +8,13 @@ export const environment = {
     apiUrl: 'http://localhost:3000',
     recaptchaSiteKey: '6LemTzsUAAAAAIZREwdhx94swTJTZayAB97qVkrW',
     logglyJsKey: '',  // @TODO Get own Loggly
-    analyticsId: ''  // @TODO Get own analytics
+    analyticsId: '',  // @TODO Get own analytics
+    firebase: {
+        apiKey: 'AIzaSyDbY33snLnE3i52r-vlewHsdMZrmeGN074',
+        authDomain: 'kristen-931e3.firebaseapp.com',
+        databaseURL: 'https://kristen-931e3.firebaseio.com',
+        projectId: 'kristen-931e3',
+        storageBucket: 'kristen-931e3.appspot.com',
+        messagingSenderId: '675829940622'
+    }
 };

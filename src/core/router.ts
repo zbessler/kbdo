@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 
 import { AppComponent } from '../app/app/app.component';
 import { HomeComponent } from '../app/home/home.component';
+import { ClassComponent, ClassResolver } from '../app/class/class.component';
+import { HomeworkComponent } from '../app/homework/homework.component';
 import { LoginComponent } from '../app/login/login.component';
 import { SignupComponent } from '../app/signup/signup.component';
 import { AdminComponent } from '../app/admin/admin.component';
@@ -17,7 +19,28 @@ export class RouterService {
     public static getRoutes(): Routes {
         return [
             { path: '', component: HomeComponent, pathMatch: 'full' },
-            { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminGuard]},
+            {
+                path: 'class/:classIdName',
+                component: ClassComponent,
+                resolve: {
+                    classData: ClassResolver
+                }
+            },
+            {
+                path: 'homework/:classIdName/:homeworkid',
+                component: HomeworkComponent,
+                resolve: {
+                    classData: ClassResolver
+                }
+            },
+            {
+                path: 'admin',
+                component: AdminComponent,
+                // , canActivate: [AuthGuard, AdminGuard]
+                resolve: {
+                    classData: ClassResolver
+                }
+            },
             { path: 'signup', component: SignupComponent },
             { path: 'login', component: LoginComponent },
             { path: 'error', component: ErrorComponent },

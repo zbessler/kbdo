@@ -1,0 +1,159 @@
+@import '../../core/vars';
+
+.class {
+    min-height: 800px;
+    background-image: url('../../assets/backgrounds/ice.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-x: center;
+    padding-top: 80px;
+    color: $brown;
+
+    .form-table.half {
+        margin: 0px 13px;
+        width: 535px;
+    }
+
+    .class-name {
+        font-size: 48px;
+        margin-bottom: 5px;
+    }
+    .instructor {
+        font-size: 33px;
+    }
+    .time {
+        font-size: 20px;
+    }
+
+    .syllabus {
+        width: 1100px;
+
+        .line {
+            padding: 20px 0px;
+
+            &:nth-child(even) {
+                background-color: $gray;
+            }
+        }
+
+        .date {
+            display: inline-block;
+            border: 2px solid $brown;
+            border-radius: 7px;
+            width: 111px;
+            margin-top: 6px;
+        }
+
+        .day {
+            border-bottom: 2px solid black;
+            padding: 4px 10px 3px 10px;
+            background-color: $light-green;
+        }
+        .month {
+            font-size: 12px;
+        }
+        .number {
+            font-size: 40px;
+        }
+
+
+        .topics {
+            text-align: left;
+            display: inline-block;
+            width: 37%;
+            margin-left: 50px;
+            vertical-align: top;
+
+            h3 {
+                margin-top: 0px;
+            }
+        }
+
+        .homeworks {
+            display: inline-block;
+            text-align: left;
+            width: 37%;
+            vertical-align: top;
+
+            h3 {
+                margin-top: 0px;
+            }
+
+            .homework {
+                background-repeat: no-repeat;
+                padding-left: 27px;
+                margin-bottom: 7px;
+                color: $brown;
+                display: block;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            .PAPER {
+                background-image: url('../../assets/icons/contract.svg');
+            }
+            .WORKSHEET {
+                background-image: url('../../assets/icons/pen.svg');
+            }
+            .READING {
+                background-image: url('../../assets/icons/open-book.svg');
+            }
+        }
+        .test {
+            display: inline-block;
+            width: calc(74% + 50px);
+            vertical-align: top;
+        }
+    }
+
+    .resources {
+
+        .resource {
+
+        }
+
+        a {
+            background-repeat: no-repeat;
+            text-align: left;
+            padding-left: 30px;
+            margin: auto;
+            margin-bottom: 10px;
+            display: inline-block;
+            color: $brown;
+
+            &.BOOK {
+                background-image: url('../../assets/icons/open-book.svg');
+            }
+            &.PAPER {
+                background-image: url('../../assets/icons/contract.svg');
+            }
+        }
+    }
+
+
+    .cta {
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        width: 301px;
+    }
+
+    .validator-error {
+        width: 301px;
+        text-align: center;
+
+        @media only screen and (min-width: 600px) {
+            width: 396px;
+        }
+        @media only screen and (min-width: 900px) {
+            width: 496px;
+        }
+    }
+    
+    .submit-error {
+        text-align: center;
+        font-size: 12px;
+    }
+    
+}

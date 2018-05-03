@@ -1,0 +1,13 @@
+<label [ngClass]="{error: error, touched: touched, active: active}">{{name}}</label>
+
+<input *ngIf="type !== 'textarea'"
+        [ngModel]="data"
+        [ngClass]="{error: error, touched: touched}"
+        type="{{type}}"
+        [placeholder]=placeholder />
+<textarea *ngIf="type === 'textarea'"
+        [ngModel]="data"
+        [ngClass]="{error: error, touched: touched}"
+        placeholder={{placeholder}}>
+</textarea>
+

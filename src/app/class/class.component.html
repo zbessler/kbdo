@@ -1,0 +1,64 @@
+<beam-header [type]="'static'"></beam-header>
+<div class="class panel white-background">
+
+    <h1 class="class-name">{{classData.displayName}} {{classData.classNumber}}</h1>
+    <div class="instructor">with {{classData.instructor}}</div>
+    <div class="time">
+        <span *ngFor="let day of classData.days; let i = index">
+            {{day}}<span *ngIf="classData.days.length - 1 !== i"> and</span></span>, 
+        {{classData.time}}
+    </div>
+
+    <div class="form-table syllabus">
+        <h1>Class Syllabus</h1>
+        <div *ngFor="let sy of syllabusData; let i = index" class="line">
+            <div class="date">
+                <div class="day">{{sy.date.day}}</div>
+                <div class="month">{{sy.date.month}}</div>
+                <div class="number">{{sy.date.number}}</div>
+            </div>
+            <div *ngIf="sy.type === 'LECTURE'" class="topics">
+                <h3>Topics covered</h3>
+                <li *ngFor="let top of sy.topics; let i = index" class="topic">{{top}}</li>
+            </div>
+            <div *ngIf="sy.type === 'LECTURE'" class="homeworks">
+                <h3>Homework assigned</h3>
+                <a *ngFor="let home of sy.homework; let i = index" [routerLink]="['/homework', classData.idName, home]"
+                     [ngClass]="['homework', homeworkData[home].type]">
+                    {{homeworkData[home].name}} : due {{homeworkData[home].due}}
+                </a>
+            </div>
+            <div *ngIf="sy.type === 'TEST'" class="test">
+                <h1>Test Day</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-table resources half">
+        <h1>Resource List</h1>
+        <div *ngFor="let resource of classData.resources; let i = index" class="resource">
+            <a ngClass="{{resource.type}}" href="{{resource.url}}">{{resource.name}}</a>
+        </div>
+    </div>
+
+    <div class="form-table resources half">
+        <h1>Resource List</h1>
+        <div *ngFor="let resource of classData.resources; let i = index" class="resource">
+            <a ngClass="{{resource.type}}" href="{{resource.url}}">{{resource.name}}</a>
+        </div>
+    </div>
+
+    <form class="form-table" [formGroup]="questionForm">
+        <h1>Questions or Comments</h1>
+        <beam-input class="field" formControlName="name" [name]="'name'" [field]="questionForm.get('name')" placeholder="Jane Doe"></beam-input>
+        <beam-input class="field" formControlName="email" [name]="'email'" [field]="questionForm.get('email')" placeholder="Your@email.com"></beam-input>
+        <beam-input class="field" formControlName="topic" [name]="'topic'" [field]="questionForm.get('topic')" placeholder="********"></beam-input>
+        <beam-input class="field" formControlName="question" [name]="'question'" [field]="questionForm.get('question')" placeholder="What will the ACE levels tell us about a patient with weeks of joint aches?" type="textarea"></beam-input>
+
+        <button class="cta" [formGroup]="questionForm">Send</button>
+        <p class="validator-error submit-error" *ngIf="submitError">
+            {{submitError}}
+        </p>
+    </form>
+</div>
+<beam-footer></beam-footer>

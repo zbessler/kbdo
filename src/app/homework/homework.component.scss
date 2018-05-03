@@ -1,6 +1,6 @@
 @import '../../core/vars';
 
-.admin {
+.panel.homework {
     min-height: 800px;
     background-image: url('../../assets/backgrounds/ice.jpg');
     background-attachment: fixed;
@@ -9,25 +9,32 @@
     padding-top: 80px;
     color: $brown;
 
-    .title {
+    .class-name {
         font-size: 48px;
         margin-bottom: 5px;
     }
-    .subtitle {
-        font-size: 25px;
+    .instructor {
+        font-size: 33px;
+    }
+    .time {
+        font-size: 20px;
     }
 
-    .field {
-        margin-bottom: -10px;
+    .homework-title {
+        margin-bottom: 5px;
     }
 
-    .resource {
-        margin-bottom: 15px;
+    .assigned-text, .due-text {
+        display: inline-block;
+        padding: 0px 5px 30px 5px;
+
+        .date {
+            font-weight: 900;
+        }
     }
 
-    .cta.small {
-        display: block;
+    .desc {
+        width: 90%;
         margin: auto;
     }
-
 }

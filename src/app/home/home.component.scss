@@ -11,7 +11,6 @@
     .background0 {
         background: url('../../assets/backgrounds/lecture-hall.jpg');
         background-size: cover;
-        background-position-y: 0px;
         background-position-x: center;
         opacity: .5;
 
@@ -90,31 +89,6 @@
             background-position-x: left;
             color: $brown;
             padding-left: 30px;
-
-            &.date {
-                background-image: url('../../assets/icons/calendar.svg');
-            }
-            &.skeletal {
-                background-image: url('../../assets/icons/skeleton.svg');
-            }
-            &.anatomy {
-                background-image: url('../../assets/icons/heart.svg');
-            }
-            &.family {
-                background-image: url('../../assets/icons/first-aid-kit.svg');
-            }
-            &.physiatry {
-                background-image: url('../../assets/icons/man-with-broken-leg.svg');
-            }
-            &.lecture {
-                background-image: url('../../assets/icons/conference.svg');
-            }
-            &.resources {
-                background-image: url('../../assets/icons/open-book.svg');
-            }
-            &.pnwu {
-                background-image: url('../../assets/icons/university.svg');
-            }
         }
     }
 }

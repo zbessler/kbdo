@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -8,6 +8,21 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent {
 
-    constructor() {}
+    public classData;
+
+    constructor(
+        private route: ActivatedRoute
+    ) {
+        // this.questionForm = fb.group({
+        //     name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+        //     topic: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+        //     email: [null, [Validators.required, Validators.email, Validators.maxLength(50)]],
+        //     question: [null, [Validators.required, Validators.minLength(12), Validators.maxLength(50)]],
+        // });
+    }
+
+    ngOnInit() {
+        this.classData = this.route.snapshot.data.classData;
+    }
 
 }

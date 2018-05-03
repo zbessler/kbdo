@@ -8,10 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { NgxLogglyModule } from 'ngx-loggly-logger';
 import { NgxCarouselModule } from 'ngx-carousel';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from '../home/home.component';
+import { ClassComponent, ClassResolver } from '../class/class.component';
+import { HomeworkComponent } from '../homework/homework.component';
 import { SignupComponent } from '../signup/signup.component';
 import { LoginComponent } from '../login/login.component';
 import { AdminComponent } from '../admin/admin.component';
@@ -22,7 +27,7 @@ import { HelpComponent } from '../help/help.component';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { HeaderComponent } from '../../components/header/header.component';
-import { BeamInputComponent } from '../../components/input/input.component';
+import { BeamInputComponent, BeamInputNoFormComponent } from '../../components/input/input.component';
 
 import { AuthService, UserModel } from '../../factories/auth.service';
 import { StorageService } from '../../factories/storage.service';
@@ -40,6 +45,8 @@ declare let ga: Function;
     declarations: [
         AppComponent,
         HomeComponent,
+        ClassComponent,
+        HomeworkComponent,
         ErrorComponent,
         AdminComponent,
         SignupComponent,
@@ -50,6 +57,7 @@ declare let ga: Function;
         HeaderComponent,
         FooterComponent,
         BeamInputComponent,
+        BeamInputNoFormComponent,
         AnalyticsDirective,
         AnimateOnScrollDirective
     ],
@@ -66,7 +74,10 @@ declare let ga: Function;
         ),
         NgxCarouselModule,
         NgxLogglyModule.forRoot(),
-        RecaptchaModule.forRoot()
+        RecaptchaModule.forRoot(),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
     ],
     providers: [
         RouterService,
@@ -78,6 +89,7 @@ declare let ga: Function;
 
         AuthGuard,
         AdminGuard,
+        ClassResolver,
         LogglyLoggerService,
         AnalyticsService,
         {
