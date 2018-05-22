@@ -4,7 +4,7 @@
     <div class="subtitle">Update your class data here!</div>
 
 
-    <div class="form-table" *ngFor="let class of classData">
+   <div class="form-table" *ngFor="let class of classData">
         <h1>Class Data</h1>
         <beam-input-noform class="field" [name]="'class name'" placeholder="Physiatry" [(data)]="class.displayName"></beam-input-noform>
         <beam-input-noform class="field" [name]="'number'" placeholder="101" [(data)]="class.classNumber"></beam-input-noform>
@@ -27,20 +27,22 @@
             <beam-input-noform class="field" [name]="'day'" placeholder="Wednesday" [(data)]="syll.date.day"></beam-input-noform>
             <beam-input-noform class="field" [name]="'month'" placeholder="March" [(data)]="syll.date.month"></beam-input-noform>
             <beam-input-noform class="field" [name]="'number'" placeholder="31" [(data)]="syll.date.number"></beam-input-noform>
-            {{syll.topics}}
+            <!-- {{syll.topics}} -->
 
-            <!-- <div>Topics</div>
-            <div *ngFor="let topic of syll.topics">
-                <beam-input-noform class="field" [name]="'topic'" placeholder="LECTURE" [(data)]="topic"></beam-input-noform>
+          <!--   <div>Topics</div>
+            <div class="topics" *ngFor="let topicTextasd of syll.topics">
+                {{topic}}
+                {{topicTextasd}}
+                <beam-input-noform class="field" [name]="'number'" placeholder="31" [(data)]="topicTextasd"></beam-input-noform>
+                <beam-input-noform class="field" [name]="'toppp'" placeholder="sadfefsdawf" [(data)]="'somedata'"></beam-input-noform>
             </div> -->
-<!--             <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
+            <!--
+            <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
             <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
             <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
             <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform>
             <beam-input-noform class="field" [name]="'type'" placeholder="LECTURE" [(data)]="res.type"></beam-input-noform> -->
 
         </div>
-
-    </div>
-
+    </div> 
 </div>

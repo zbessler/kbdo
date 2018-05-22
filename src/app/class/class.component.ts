@@ -49,8 +49,8 @@ export class ClassComponent implements OnInit {
                 this.classData = classData;
                 this.idName = classData.idName;
                 this.syllabusData = classData.syllabus;
-            };
-        )
+            }
+        );
     }
 
 }

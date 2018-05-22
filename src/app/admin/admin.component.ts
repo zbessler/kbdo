@@ -23,6 +23,8 @@ export class AdminComponent {
 
     ngOnInit() {
         this.classData = this.route.snapshot.data.classData;
+
+        console.log('topics', this.classData[0].syllabus[0].topics);
     }
 
 }
