@@ -4,7 +4,7 @@
     <div class="subtitle">Update your class data here!</div>
 
 
-   <div class="form-table" *ngFor="let class of classData">
+   <div class="content-card" *ngFor="let class of classData">
         <h1>Class Data</h1>
         <beam-input-noform class="field" [name]="'class name'" placeholder="Physiatry" [(data)]="class.displayName"></beam-input-noform>
         <beam-input-noform class="field" [name]="'number'" placeholder="101" [(data)]="class.classNumber"></beam-input-noform>

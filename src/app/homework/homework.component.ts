@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import * as _findIndex from 'lodash/findIndex';
 
-import { PhysiatrySyllabus, ClassHomework, classes } from '../../core/constants';
-
 @Component({
   templateUrl: './homework.component.html',
   styleUrls: ['./homework.component.scss']
@@ -14,7 +12,6 @@ export class HomeworkComponent implements OnInit {
     public submitError = null;
     public homeworkId: number;
     public classIdName: number;
-    public syllabusData = PhysiatrySyllabus;
     public homeworkData;
     public classData;
 

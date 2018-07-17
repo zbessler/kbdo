@@ -2,7 +2,7 @@ import { Component, HostListener, ViewChild } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { AuthService } from '../../factories/auth.service';
-import * as Constants from '../../core/constants';
+import { ClassData, NewsData } from '../../core/constants';
 
 @Component({
     templateUrl: './home.component.html',
@@ -30,8 +30,9 @@ export class HomeComponent {
 
     public bgPosY = '0px';
 
-    private newsData = Constants.newsData;
-    private classes = Constants.classes;
+    private newsData = NewsData;
+    private classes = ClassData;
+    private classesNumberList = Object.keys(ClassData);
 
 
     constructor() {}

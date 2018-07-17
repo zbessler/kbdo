@@ -9,7 +9,7 @@
         {{classData.time}}
     </div>
 
-    <div class="form-table syllabus">
+    <div class="content-card syllabus">
         <h1 class="homework-title">{{homeworkData.name}}</h1>
         <div class="assigned-text">Assigned: <span class="date">{{homeworkData.assigned}}</span></div>
         <div class="due-text">Due: <span class="date">{{homeworkData.due}}</span></div>
@@ -19,7 +19,7 @@
             <a href="{{link.url}}">{{link.name}}</a>
         </div>
 
-        <button class="cta" [routerLink]="['/class/', classData.idName]">Back to Class</button>
+        <button class="cta" [routerLink]="['/class/', classData.classNumber]">Back to Class</button>
     </div>
 
 </div>

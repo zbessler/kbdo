@@ -20,14 +20,14 @@ export class RouterService {
         return [
             { path: '', component: HomeComponent, pathMatch: 'full' },
             {
-                path: 'class/:classIdName',
+                path: 'class/:classNumber',
                 component: ClassComponent,
                 resolve: {
                     classData: ClassResolver
                 }
             },
             {
-                path: 'homework/:classIdName/:homeworkid',
+                path: 'homework/:classNumber/:homeworkid',
                 component: HomeworkComponent,
                 resolve: {
                     classData: ClassResolver

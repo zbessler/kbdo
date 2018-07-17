@@ -59,9 +59,9 @@
     </div>
     <div class="block" beamAnimateOnScroll="fadeIn" offset="200">
         <div class="header">Class List</div>
-        <a *ngFor="let c of classes"
-           [ngClass]="['line', c.iconName + '-icon']" 
-           [routerLink]="['/class/', c.idName]">{{c.displayName}}</a>
+        <a *ngFor="let c of classesNumberList"
+           [ngClass]="['line', classes[c].iconName + '-icon']" 
+           [routerLink]="['/class/', classes[c].classNumber]">{{classes[c].displayName}}</a>
     </div>
 
     <div class="block" beamAnimateOnScroll="fadeIn" offset="200">

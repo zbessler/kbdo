@@ -152,7 +152,7 @@ a {
 }
 
 
-.form-table {
+.content-card {
     border-top: 10px solid $green;
     background-color: #fff;
     padding-bottom: 30px;
@@ -171,6 +171,22 @@ a {
         width: 85%;
     }
 
+    &.half {
+        margin-left: 13px;
+        margin-right: 13px;
+        width: 250px;
+        
+        @media only screen and (min-width: 460px) {
+            width: 40%;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 535px;
+        }
+        @media only screen and (min-width: $desktop-width) {
+            width: 535px;
+        }
+    }
+
     @media only screen and (min-width: 460px) {
         width: 80%;
     }
@@ -178,7 +194,7 @@ a {
     @media only screen and (min-width: 600px) {
         padding-top: 0px; 
         padding-bottom: 50px;
-        margin: 70px auto 50px auto;
+        margin: 30px auto 30px auto;
         z-index: 0;
         display: inline-block;
         width: 550px;
@@ -190,7 +206,7 @@ a {
     }
 
     @media only screen and (min-width: $desktop-width) {
-        width: 700px;
+        width: 1100px;
 
         .field, .subtext {
             width: 500px;

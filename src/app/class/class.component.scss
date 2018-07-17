@@ -9,10 +9,7 @@
     padding-top: 80px;
     color: $brown;
 
-    .form-table.half {
-        margin: 0px 13px;
-        width: 535px;
-    }
+
 
     .class-name {
         font-size: 48px;
@@ -25,8 +22,152 @@
         font-size: 20px;
     }
 
+
+
+
+    .quick-nav {
+        position: fixed;
+        background: white;
+        border: 1px solid #ddd;
+        top: 100px;
+        transition: all .2s linear;
+        height: 715px;
+        width: 310px;
+        overflow: hidden;
+        white-space: nowrap;
+
+        &.closed {
+            width: 55px;
+            height: 150px;
+
+            .compass {
+                display: block;
+                margin-bottom: 2000px;
+            }
+            .nav-text {
+                display: block;
+                position: absolute;
+                transform: rotate(90deg);
+                font-size: 30px;
+                top: 75px;
+            }
+            .close {
+                display: none;
+            }
+        }
+
+        h1 {
+            text-align: left;
+            padding-left: 28px;
+        }
+
+        .nav-icon {
+            width: 35px;
+            padding: 10px;
+        }
+        .compass, .nav-text {
+            display: none;
+        }
+        .close {
+            display: block;
+            position: absolute;
+            right: -6px;
+            top: -6px;
+            width: 18px;
+        }
+
+
+        .toc {
+            display: block;
+            text-align: left;
+        }
+
+        .filter-container {
+            display: block;
+
+            .filter {
+                margin: 5px 20px;
+                padding: 10px 8px;
+                background: $gray;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &.selected {
+                    background: $green;
+                }
+            }
+        }
+    }
+
+    .contact {
+
+        .line-header {
+            background-color: $dark-gray;
+        }
+        .line {
+            width: 100%;
+
+            &:nth-child(even) {
+                background-color: $gray;
+            }
+        }
+        .detail {
+            width: 17%;
+            display: inline-block;
+            padding: 10px 0px;
+        }
+    }
+
+    .basic {
+        text-align: left;
+            
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        .root-list {
+            padding: 0px 110px;
+        }
+    }
+
+    .learning {
+        text-align: left;
+            
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        .line-header {
+            background-color: $dark-gray;
+            padding: 20px 3%;
+            font-weight: 900;
+        }
+
+        .line {
+            padding: 20px 3%;
+            width: 94%;
+
+            &:nth-child(even) {
+                background-color: $gray;
+            }
+        }
+        .detail0 {
+            width: 56%;
+        }
+        .detail1 {
+            width: 20%;
+        }
+        .detail2 {
+            width: 20%;
+        }
+        .detail0, .detail1, .detail2  {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 5px;
+        }
+    }
+
     .syllabus {
-        width: 1100px;
 
         .line {
             padding: 20px 0px;
@@ -56,11 +197,14 @@
             font-size: 40px;
         }
 
+        .lecture-header {
+            margin-bottom: 0px;
+        }
 
         .topics {
             text-align: left;
             display: inline-block;
-            width: 37%;
+            width: 23%;
             margin-left: 50px;
             vertical-align: top;
 
@@ -72,7 +216,7 @@
         .homeworks {
             display: inline-block;
             text-align: left;
-            width: 37%;
+            width: 23%;
             vertical-align: top;
 
             h3 {
@@ -98,6 +242,18 @@
             }
             .READING {
                 background-image: url('../../assets/icons/open-book.svg');
+            }
+        }
+
+        .lab {
+            text-align: left;
+            display: inline-block;
+            width: 29%;
+            margin-left: 20px;
+            vertical-align: top;
+
+            h3 {
+                margin-top: 0px;
             }
         }
         .test {
@@ -154,6 +310,10 @@
     .submit-error {
         text-align: center;
         font-size: 12px;
+    }
+
+    .content-card .subinfo {
+        padding: 0px 50px;
     }
     
 }

@@ -117,12 +117,12 @@
             <div>Class List</div>
             <div class="class-list">
 
-                <a *ngFor="let c of classes"
+                <a *ngFor="let c of classesNumberList"
                    [ngClass]="['line']" 
-                   [routerLink]="['/class/', c.idName]">
+                   [routerLink]="['/class/', classes[c].classNumber]">
 
-                    <img class="icon" [src]="'../assets/icons/'+c.iconName+'.svg'" />
-                    {{c.displayName}}
+                    <img class="icon" [src]="'../assets/icons/'+classes[c].iconName+'.svg'" />
+                    {{classes[c].displayName}}
                 </a>
            </div>
        </a>

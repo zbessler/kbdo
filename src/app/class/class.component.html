@@ -1,15 +1,304 @@
 <beam-header [type]="'static'"></beam-header>
 <div class="class panel white-background">
 
-    <h1 class="class-name">{{classData.displayName}} {{classData.classNumber}}</h1>
-    <div class="instructor">with {{classData.instructor}}</div>
+    <h1 class="class-name">{{classData.classNumber}} : {{classData.displayName}}</h1>
+    <div class="instructor">Director: {{classData.director}}</div>
     <div class="time">
         <span *ngFor="let day of classData.days; let i = index">
             {{day}}<span *ngIf="classData.days.length - 1 !== i"> and</span></span>, 
         {{classData.time}}
     </div>
 
-    <div class="form-table syllabus">
+    <div [ngClass]="{'quick-nav': true, closed: !navOpen}">
+        <img class="nav-icon compass" src="../../assets/icons/compass.svg" (click)="toggleNav()" />
+        <span class="nav-text">NAV</span>
+        <img class="nav-icon close" src="../../assets/icons/cancel.svg" (click)="toggleNav()" />
+        <h1>Quick Navigation</h1>
+        <ul class="toc">
+            <h3>Table of Contents</h3>
+            <li>Contact Information</li>
+            <li>Course Overview</li>
+            <li>Course Goals</li>
+            <li>Learning Objectives</li>
+            <li>Course Schedule</li>
+            <li>Course Format</li>
+            <li>Course Logistics</li>
+            <li>Rules & Policies</li>
+            <li>Learning Assessments</li>
+            <li>Exam Policy</li>
+            <li>Course Textbooks & Supplies</li>
+            <li>Student Learning Resources</li>
+            <li [routerLink]="['/']"  fragment="honor">Responsibilities and Honor Code</li>
+        </ul>
+        <div class="filter-container">
+            <h3>Filters</h3>
+            <div [ngClass]="{'filter': true, 'selected': basicFilter}" (click)="toggleBasicFilter()">Basic Info</div>
+            <div [ngClass]="{'filter': true, 'selected': refFilter}" (click)="toggleRefFilter()">Class References</div>
+            <div [ngClass]="{'filter': true, 'selected': assignFilter}" (click)="toggleAssignFilter()">Assignment Info</div>
+            <div [ngClass]="{'filter': true, 'selected': rulesFilter}" (click)="toggleRulesFilter()">Rules and Guidlines</div>
+        </div>
+    </div>
+
+    <div class="content-card contact" id="contact" *ngIf="refFilter">
+        <h1>Contact Information</h1>
+        <p class="subinfo">
+            The Osteopathic Principles and Practice (OPP) department has an open-door policy.  Please feel free to drop by
+            at any time to ask questions or set up an appointment at a later date. Course faculty will make themselves available
+            for questions and osteopathic educational activities.  Appointments outside of class time may be made in person, by
+            telephone, texting, or sending an e-mail. Please e-mail or contact the desired faculty member in person and ask to set
+            up an appointment, if you wish to meet with an instructor since he/she may have other time-intensive demands outside of class.
+        </p>
+        <p class="subinfo">
+            The OPP Department has two Scholars this year, who augment the faculty in a variety of ways.  Please enlist their help, 
+            as they are here to assist you in your educational endeavors
+        </p>
+
+        <h3>Department Chair</h3>
+        <div class="line-header">
+            <span class="detail">Name</span>
+            <span class="detail">Department</span>
+            <span class="detail">Office</span>
+            <span class="detail">Phone</span>
+            <span class="detail">Email</span>
+        </div>
+        <div class="line">
+            <span class="detail">{{faculty.chair.name}}</span>
+            <span class="detail">{{faculty.chair.dept}}</span>
+            <span class="detail">{{faculty.chair.office}}</span>
+            <span class="detail">{{faculty.chair.phone}}</span>
+            <span class="detail">{{faculty.chair.email}}</span>
+        </div>
+
+        <h3>Course Director</h3>
+        <div class="line-header">
+            <span class="detail">Name</span>
+            <span class="detail">Department</span>
+            <span class="detail">Office</span>
+            <span class="detail">Phone</span>
+            <span class="detail">Email</span>
+        </div>
+        <div *ngFor="let dir of faculty.director" class="line">
+            <span class="detail">{{dir.name}}</span>
+            <span class="detail">{{dir.dept}}</span>
+            <span class="detail">{{dir.office}}</span>
+            <span class="detail">{{dir.phone}}</span>
+            <span class="detail">{{dir.email}}</span>
+        </div>
+
+        <h3>Teaching Faculty</h3>
+        <div class="line-header">
+            <span class="detail">Name</span>
+            <span class="detail">Department</span>
+            <span class="detail">Office</span>
+            <span class="detail">Phone</span>
+            <span class="detail">Email</span>
+        </div>
+        <div *ngFor="let fc of faculty.faculty" class="line">
+            <span class="detail">{{fc.name}}</span>
+            <span class="detail">{{fc.dept}}</span>
+            <span class="detail">{{fc.office}}</span>
+            <span class="detail">{{fc.phone}}</span>
+            <span class="detail">{{fc.email}}</span>
+        </div>
+
+        <h3>OPP Scholars</h3>
+        <div class="line-header">
+            <span class="detail">Name</span>
+            <span class="detail">Department</span>
+            <span class="detail">Office</span>
+            <span class="detail">Email</span>
+        </div>
+        <div *ngFor="let sc of faculty.scholar" class="line">
+            <span class="detail">{{sc.name}}</span>
+            <span class="detail">{{sc.dept}}</span>
+            <span class="detail">{{sc.office}}</span>
+            <span class="detail">{{sc.email}}</span>
+        </div>
+    </div>
+
+    <div class="content-card overview basic" id="overview" *ngIf="basicFilter">
+        <h1>Course Overview</h1>
+        <p class="subinfo">
+            Osteopathic Principles and Practice courses consist of learning both cognitive and motor skills.  Accordingly, there is a weekly lecture followed by a laboratory presentation and small group learning experiences.  Osteopathic history and heritage information and reading assignments will periodically be provided throughout the course, and questions from this material may appear on written examinations and quizzes.  Written and practical evaluation of the learner’s knowledge and skills occur periodically throughout the course, and homework may be assigned for difficult topics.  Specific detailed learning objectives will be included for each lecture/OMT (Osteopathic Manipulative Treatment) laboratory presentation.  Objective outcomes will be assessed by means of written examinations (“cognitive component”), and oral/written practical examinations (“cognitive component” and “psychomotor component”).
+        </p>
+        <h3>Educational Philosophy of the OPP Department</h3>
+        <p class="subinfo">
+            Osteopathic Principles and Practice teaches concepts and skills fundamental to becoming an osteopathic physician, which are applicable to all areas and specialties of medicine.  This material and its comprehension are by necessity and design a <span class="strong">cumulative, comprehensive experience</span>.  Each succeeding lesson builds upon knowledge and skills previously learned and mastered.  Instruction begins with terminology and basic concepts, progresses to skills in tactile diagnosis, and ultimately to treatment.  Learners will be taught different forms of treatment and their applications and contraindications in increasingly complex clinical scenarios.  OPP faculty will present information, then challenge the learner to repeat and emulate these osteopathic principles and treatments.
+        </p>
+        <p class="subinfo">
+            Students from the class will be used as demonstration subjects in front of the class as appropriate, and students may be called upon to demonstrate principles and techniques, both individually and in front of the class.  Many of your instructors have a clinical practice of medicine emphasizing the care of neuromusculoskeletal conditions.  Their experiences are widely varied, yet they are united in their practice of the discipline and commitment to teaching.  Consider your faculty and instructors to be facilitators and resources for your learning.
+        </p>
+        <p class="subinfo">
+            The OPP Department cannot stress enough to students that knowledge of our osteopathic principles and concepts and proficiency in osteopathic manipulative modalities are difficult to attain without practice and study outside of the classroom.  Osteopathic palpatory diagnosis and treatment are physical skills, which are enhanced and perfected only after repeated practice.  <span class="strong">Additional practice outside of class time is essential for mastery of these skills</span>.  OPP lab is open outside of class hours, so students may have free access to equipment for practice, and scholars will be available for weekly Open Labs on Fridays.
+        </p>
+        <p class="subinfo">
+            Students with questions or confusion about material being taught are encouraged to contact a faculty member or scholar for help, either at the time a question arises or to schedule a future appointment.  OPP faculty and scholars are always willing, at appropriate times, to help any student who feels he/she is falling behind in undertaking material presented in class (lectures and/or labs).
+        </p>
+        <h3>Statement to Students</h3>
+        <p class="subinfo">
+            Medical students are an elite group accustomed to being very good at everything, possibly at their initial attempt.  Everyone is accepted to medical school only after working hard and surmounting many substantial barriers.  OPP is challenging in that it combines both cognitive and psychomotor skills that are mostly, or entirely new.  There are no available prerequisites or college-level coursework by which matriculating students may prepare themselves.  Using palpation and osteopathic techniques may be difficult initially; one may perceive little of what is described at first.  This initial lack of perception does not diminish the validity of the experience.  For once in your academic life, it may be difficult to “get it” immediately.  <span class="strong">Keep trying</span>.  And, ask for help early.  Please do not wait until the last minute.  The faculty and scholars are here, ready, and willing to assist you.
+        </p>
+        <p class="subinfo">
+        </p>
+    </div>
+
+    <div class="content-card goals basic" id="goals" *ngIf="basicFilter">
+        <h1>Course Goals</h1>
+        <h3>Overview</h3>
+        <p class="subinfo">
+            OPP courses are carefully designed as an introduction to the basic philosophy, principles, and practice of osteopathic health care.  Emphasis is placed on the sequential development of palpatory, diagnostic, and therapeutic skills used to assess health and disease.  The overall course integrates the osteopathic philosophy of patient care with the systems approach of medical education.  Osteopathic medicine, supported by a growing body of scientific knowledge, is applicable to all branches and specialties of medicine, and includes the unity of the living organism comprised of body, mind, and spirit.  OPP teaches osteopathic philosophy, problem solving, and patient management, incorporating multiple appropriate osteopathic manipulative modalities, including, but not limited to, soft tissue (ST), myofascial release (MFR), muscle energy (ME), Strain/Counterstrain (CS), balanced ligamentous tension (BLT), high velocity-low amplitude (HVLA), and osteopathic medicine in the cranial field.  Students will be able to describe, diagnose, and treat somatic dysfunction as reflected in impaired or altered body system function.  Students will learn and be able to utilize the following principles in patient care:
+        </p>
+        <ol class="root-list">
+            <li>Structure and function are mutually interdependent, along with mind and spirit.</li>
+            <li>The body has an inherent capacity to heal itself in the face of disease processes.</li>
+            <li>The osteopathic structural exam, and how the structural findings are integrated into the overall workup of a patient.</li>
+            <li>Optimal body function depends upon optimal maximization of anatomical motion and circulatory mechanisms.</li>
+            <li>Rational treatment utilizes these principles.</li>
+        </ol>
+        <h3>Goal</h3>
+        <p class="subinfo">
+            The goal of this course is to enlighten and empower osteopathic medical students with a basic core understanding of osteopathic principles and practices in a medical, basic-science context that is integrated in order to achieve the objectives of performing basic palpatory diagnosis and osteopathic treatment.  Therefore, specific course objectives are multiple.  Upon successful completion of the course, the student will be able to:
+        </p>
+        <ol class="root-list">
+            <li>Articulate and demonstrate basic osteopathic principles.</li>
+            <li>Integrate basic osteopathic principles and practices with the knowledge acquired from biomedical and clinical sciences.</li>
+            <li>
+                Demonstrate clinical understanding related to common medical conditions, considering:
+                <ul>
+                    <li>Relevant anatomy and physiology</li>
+                    <li>Typical manifestations of somatic dysfunction</li>
+                    <li>Relevant sympathetic and parasympathetic innervation and influence</li>
+                    <li>Venous, lymphatic, and cerebrospinal fluid pathways</li>
+                    <li>Pain and pain behavior</li>
+                    <li>Biomechanical impact of somatic and medical conditions</li>
+                    <li>Support of the body’s self-healing mechanisms</li>
+                    <li>Psychosocial and spiritual implications in osteopathic treatment and medical care</li>
+                    <li>Prioritization of the above considerations based on the individual patient</li>
+                </ul>
+            </li>
+            <li>Describe and demonstrate the osteopathic structural exam, and discuss how structural findings are integrated into the overall workup of a patient.</li>
+            <li>Describe the role of somatosomatic, somatovisceral, viscerovisceral, and viscerosomatic dysfunction in pathophysiology, and create an appropriate osteopathic manipulative treatment plan.</li>
+            <li>
+                Devise an osteopathic management plan for common medical conditions.
+                <ul>
+                    <li>Include a rationale for osteopathic manipulative treatment in the patient’s plan of care.</li>
+                    <li>Demonstrate proper selection of one or more appropriate OMT modalities to be used to treat a patient’s particular diagnoses, addressing indications and contraindications for osteopathic medical treatment.</li>
+                    <li>Recognize any distinctive adaptation of technique necessary in the patient population being treated.</li>
+                    <li>Be able to explain and demonstrate OMT techniques for any type of patient, i.e., ambulatory, hospitalized, post-surgical patients, etc.</li>
+                </ul>
+            </li>
+            <li>Safely, efficiently, and competently use appropriate osteopathic treatment methods of muscle energy, counterstrain, myofascial release, balanced ligamentous tension, high velocity-low amplitude, and cranial osteopathy, as well as other direct and indirect methods introduced at the discretion of the course director.</li>
+            <li>Discuss and demonstrate osteopathic professionalism.</li>
+        </ol>
+
+        <p class="subinfo">
+            Application of these principles and practices continues throughout the clinical rotations
+        </p>
+    </div>
+
+    <div class="content-card learning" id="learning" *ngIf="basicFilter">
+        <h1>Course Learning Objectives (NBOME)</h1>
+        <div class="line-header">
+            <span class="detail0">Objectives</span>
+            <span class="detail1">Methods of Assessment</span>
+            <span class="detail2">Learning Activities</span>
+        </div>
+        <div class="line">
+            <span class="detail0">
+                <h3>Application of Medical Knowledge</h3>
+                Students are expected to demonstrate knowledge of osteopathic principles to identify somatic dysfunction using palpatory diagnosis of the musculoskeletal system and its related components, then follow accepted standards in OMT and put into practice osteopathic philosophy and manipulative medicine modalities.  Students shall be able to perform a credible palpatory structural examination of the musculoskeletal system and its related components, in the context of biomechanical functioning.
+            </span>
+            <span class="detail1">
+                Multiple choice quizzes and exams and practical exams.
+            </span>
+            <span class="detail2">
+                Observation, discussion, lectures, laboratories, handouts, readings, video recorded materials, PowerPoints, quizzes, MCQ written exams, practical exams, tutorials, recitation.
+            </span>
+        </div>
+        <div class="line">
+            <span class="detail0">
+                <h3>Clinical Skills</h3>
+                Students must demonstrate the ability to provide competent medical care and incorporate osteopathic philosophy, diagnosis of somatic dysfunction of the entire body, patient empathy, awareness of behavioral issues, basic structural musculoskeletal examination techniques, performance of appropriate osteopathic modalities to effectively treat structural problems, as well as include preventive medicine concepts to promote wellness.
+            </span>
+            <span class="detail1">
+                Multiple choice quizzes and exams and practical exams.
+            </span>
+            <span class="detail2">
+                Observation, discussion, lectures, laboratories, handouts, readings, video recorded materials, PowerPoints, quizzes, MCQ written exams, practical exams, tutorials, recitation.
+            </span>
+        </div>
+        <div class="line">
+            <span class="detail0">
+                <h3>Application of Medical Knowledge </h3>
+                Students will be able to demonstrate and apply knowledge of accepted standards of clinical medicine and osteopathic principles and practices to clinical medicine, remain current with new developments in medicine, and will be prepared to participate in life-long learning activities.
+            </span>
+            <span class="detail1">
+                Multiple choice quizzes and exams and practical exams.
+            </span>
+            <span class="detail2">
+                Observation, discussion, lectures, laboratories, handouts, readings, video recorded materials, PowerPoints, quizzes, MCQ written exams, practical exams, tutorials, recitation.
+            </span>
+        </div>
+        <div class="line">
+            <span class="detail0">
+                <h3>Practice-based learning and improvement in osteopathic medicine</h3>
+                Students will demonstrate the ability to access pertinent information to support decision-making, and then apply fundamental scientific concepts in the application of osteopathic principles and selected treatment methods.
+            </span>
+            <span class="detail1">
+                Observation of professional behavior in the classroom, small groups, and testing activities by faculty.
+            </span>
+            <span class="detail2">
+                Observation, discussion, lectures, laboratories, handouts, readings, video recorded materials, PowerPoints, quizzes, MCQ written exams, practical exams, tutorials, recitation.
+            </span>
+        </div>
+        <div class="line">
+            <span class="detail0">
+                <h3>Interpersonal and communication skills in the practice of osteopathic medicine</h3>
+                Students will be able to discuss and demonstrate effective interpersonal and communication skills demonstrating courtesy and respect to instructors, peers, and patients in diagnosing somatic dysfunction and selecting appropriate treatment modalities.
+            </span>
+            <span class="detail1">
+                Observation of professional behavior in the classroom, small groups, and testing activities by faculty.
+            </span>
+            <span class="detail2">
+                Direct observation and modeling of peers and faculty professionalism
+            </span>
+        </div>
+        <div class="line">
+            <span class="detail0">
+                <h3>Professionalism in the practice of osteopathic medicine</h3>
+                <ul>
+                    <li>Students are expected to uphold the Osteopathic Oath in conducting professional activities that promote advocacy of patient welfare, adherence to ethical principles, and collaboration with health professionals, life-long learning, and sensitivity to a diverse patient population.</li>
+                    <li>Students should be cognizant of their own physical and mental health in order to effectively care for patients.</li>
+                    <li>Students will appropriately and respectfully address instructors, peers, and patients.</li>
+                </ul>
+            </span>
+            <span class="detail1">
+                Observation of professional behavior in the classroom, small groups, and testing activities by faculty.
+            </span>
+            <span class="detail2">
+                Direct observation and modeling of peers and faculty professionalism
+            </span>
+        </div>
+        <div class="line">
+            <span class="detail0">
+                <h3>Systems-based practice in osteopathic medicine</h3>
+                Students will demonstrate an understanding of appropriate application of osteopathic treatment to address biomechanical factors and organic dysfunction to influence health within the patient.
+            </span>
+            <span class="detail1">
+                Observation, discussion, lectures, laboratories, handouts, readings, video recorded materials, PowerPoints, quizzes, MCQ written exams, practical exams, tutorials, and recitation.
+            </span>
+            <span class="detail2">
+                Direct observation and modeling of peers and faculty.
+            </span>
+        </div>
+
+        <h3>Learning Objectives</h3>
+        <p class="subinfo">
+            Learning objectives and supplementary information (presented in lectures, labs, required and additional assigned reading, lists, handouts, PowerPoints, videotapes, diagrams, etc.) necessary for each didactic and/or clinical skills laboratory session will be made available on Moodle.  Exam questions and practical exam items will be derived from the learning objectives; however, remember that objectives necessarily are broad indicators of the type of material and expectations for which much more detailed and specific information is provided in lectures, handout assignments, and laboratories.  In addition, exam questions are formulated according to a set method designed to test the learner’s comprehension and ability to apply course materials.
+        </p>
+    </div>
+
+    <div class="content-card syllabus" id="syllabus" *ngIf="assignFilter">
         <h1>Class Syllabus</h1>
         <div *ngFor="let sy of syllabusData; let i = index" class="line">
             <div class="date">
@@ -17,38 +306,189 @@
                 <div class="month">{{sy.date.month}}</div>
                 <div class="number">{{sy.date.number}}</div>
             </div>
+
             <div *ngIf="sy.type === 'LECTURE'" class="topics">
-                <h3>Topics covered</h3>
+                <h3 class="lecture-header">Lecture Topics</h3>
+                with {{sy.instructor}}
                 <li *ngFor="let top of sy.topics; let i = index" class="topic">{{top}}</li>
             </div>
             <div *ngIf="sy.type === 'LECTURE'" class="homeworks">
-                <h3>Homework assigned</h3>
-                <a *ngFor="let home of sy.homework; let i = index" [routerLink]="['/homework', classData.idName, home]"
+                <h3>Homework Due</h3>
+                <a *ngFor="let home of sy.homework; let i = index" [routerLink]="['/homework', classData.classNumber, home]"
                      [ngClass]="['homework', homeworkData[home].type]">
-                    {{homeworkData[home].name}} : due {{homeworkData[home].due}}
+                    {{homeworkData[home].name}}
                 </a>
             </div>
+            <div *ngIf="sy.type === 'LECTURE'" class="lab">
+                <h3>Lab</h3>
+                <div>{{sy.lab.title}}</div>
+                <div>{{sy.lab.time[0].instructor}} : {{sy.lab.time[0].time}}</div>
+                <div>{{sy.lab.time[1].instructor}} : {{sy.lab.time[1].time}}</div>
+            </div>
+
             <div *ngIf="sy.type === 'TEST'" class="test">
                 <h1>Test Day</h1>
             </div>
         </div>
     </div>
 
-    <div class="form-table resources half">
-        <h1>Resource List</h1>
+    <div class="content-card format basic" id="format" *ngIf="basicFilter">
+        <h1>Course Format</h1>
+        <p class="subinfo">
+            Osteopathic Principles and Practice (OPP) is taught across four semesters in two years combining lectures and laboratory components comprised of formal didactic lectures (“cognitive component”) in a classroom setting, self study, small group sessions (“cognitive component”), and osteopathic manipulation training (OMT, “psychomotor component”) conducted in a large teaching laboratory setting.  Skills and knowledge that will be disseminated, taught, and examined are done in a <span class="strong">cumulative and comprehensive manner</span>.  Students will learn and practice clinical palpatory skills in a professional manner on males and females, and, in turn, will also be palpated by both males and females.  The course director retains the prerogative to change the format and content of all learning activities.
+        </p>
+    </div>
+
+    <div class="content-card logistics basic" id="logistics" *ngIf="rulesFilter">
+        <h1>Course Logistics</h1>
+        <h3>Course Moodle Page</h3>
+        <p class="subinfo">
+            Refer to the course <span class="strong">Moodle page for the location and time of each course learning activity</span>, required readings and objectives, lecture and lab PowerPoints, supplemental material, times for assessments, etc.  Faculty may provide some material via handouts or other written or electronic modalities.
+        </p>
+        <h3>Course Faculty</h3>
+        <p class="subinfo">
+            Course faculty participate in lecturing, laboratories, small group exercises, written and practical exams, and, at the request of course directors, remediation of students.  Faculty members and scholars are available for questions during all scheduled course activities.  Faculty and scholars will be available to meet and discuss coursework outside of class time by appointment, and may be contacted by phone, e-mail, or personal communication.
+        </p>
+        <p class="subinfo">
+            <span class="strong">All faculty have been advised not to offer Osteopathic treatment to students during regularly scheduled lecture or laboratory time</span>.  Supervised educational service (OES) treatment opportunities may be provided per individual faculty discretion or by the department outside of class.  Please understand that faculty are not permitted to establish a doctor/patient relationship; therefore, faculty may treat any musculoskeletal issues that arise during lab, but any other requests must be kept within a learning environment.  These are <span class="strong">learning opportunities</span> and not medical evaluations, and each student must bring a partner to scheduled sessions.
+        </p>
+        <h3>Group Assignments</h3>
+        <p class="subinfo">
+            There are two types of group assignments within which students are assigned.
+            <ol  class="root-list">
+                <li>The class is divided into two approximately equal major groups A and B for laboratory assignments.  <span class="strong">Be sure to come to the correct laboratory to which you are assigned per the syllabus schedule. Lab times may not be switched, without the approval of the course director</span>. Participation in OPP laboratory sessions is mandatory. Approval to miss class will not be given for activities not approved through the university.</li>
+                <li>Each major group A and B is further divided into Pods for each laboratory session in order to make table assignments.  Subgroup assignments will be posted on Moodle.  Assignment of students to Pods (see Table Assignments) will be dependent on the total number of faculty members and scholars available at any given time, and may change due to a variety of factors.</li>
+            </ol>
+
+        <h3>Table Assignments</h3>
+        <ol class="root-list">
+            <li>
+                Doc-in-a-Pod Assignments
+                <ul>
+                    <li>The OPP laboratory has groups of five to six treatment tables arranged in seven Pods throughout the room.</li>
+                    <li>Typically, ten to twelve students are assigned to each Pod.  Pod assignments <span class="strong">will vary</span> during the semester.</li>
+                    <li>One faculty member and/or scholar is assigned to each Pod for teaching purposes.  </li>
+                    <li>Each Pod has access to one complete mobile skeleton.</li>
+                    <li>Additional teaching aids may be available, as appropriate.</li>
+                </ul>
+            </li>
+            <li>
+                Table Assignments
+                <ul>
+                    <li>Two students are typically assigned to one treatment table in a Pod; assignments may change occasionally to accommodate the goals or needs of any particular laboratory experience.</li>
+                    <li>Students should be sure to work with all other students in the Pod throughout the semester, a procedure that will provide a variety of morphological experiences.  This means students should, as dictated by a particular lab exercise, examine, palpate, and treat classmates of both sexes and different body types (small, large, short, tall, etc.).  This will, in part, simulate varying clinical situations.</li>
+                </ul>
+            </li>
+        </ol>
+        <h3>Learner Expectations</h3>
+        <p class="subinfo">
+            All students are expected to be on time prepared for every lecture and laboratory, having completed all assigned readings and any other applicable materials. To encourage this preparation, a 5-point quiz will be given at the beginning of each lab pertaining to the associated lecture material.  Remember that everything is cumulative, so be sure to review and refresh yourself on prior materials, which build on and amplify current assignments. Faculty will assume students are properly prepared, so that current material may be discussed in the proper framework and the next level of complexity may be developed.
+        </p>
+        <h3>Pre-existing Conditions</h3>
+        <p class="subinfo">
+            Students are personally responsible for alerting the course director in a timely manner prior to the start of classes of any pre-existing medical, physical, or other condition that may need special accommodation relative to participation in the OPP lab.  Lab partners should be informed, if appropriate.  A notice of special accommodation must be requested through the Office of Student Affairs, who will notify the course director when the request is approved.
+        </p>
+    </div>
+    <div class="content-card rules basic" id="rules" *ngIf="rulesFilter">
+        <h1>Course Rules and Policies</h1>
+
+        <h3>Course Attendance and Conduct Policies</h3>
+        <p class="subinfo">
+            Attendance and professional conduct are required as described in the PNWU-COM student handbook. Punctuality is an essential component of professionalism, especially important for starting lectures and labs, and crucial for written exams, quizzes, and laboratory practical exams.
+        </p>
+        <p class="subinfo">
+            Laptop computers or iPads are permitted in class to serve as educational enhancements to material covered in class or the syllabus (not for reviewing e-mails, other course work, social media, etc.).  There is to be no studying of materials for other classes, tests or boards during OPP lab (more information in Laboratory Rules).  In the laboratory, please do not connect your laptop to any cords for the safety of faculty and peers, i.e., make sure the laptop battery is charged before class.  Cameras and music players are not allowed in lectures or the laboratory at any time.
+        </p>
+        <h3>Dress Policy</h3>
+        <p class="subinfo">
+            Appropriate laboratory attire during osteopathic manipulation skills training (OMT) includes athletic shorts with a T-shirt for men and athletic shorts with a sports bra and athletic shorts or a swimsuit with an open back for women.  <span class="strong">Please refrain from clothing that is too loose or exposing sensitive body parts</span>, so that a reasonable amount of professional decorum may be maintained.
+        </p>
+        <p class="subinfo">
+            Athletic shorts are considered to be made from a thin material cut above the knee with an elastic waist.  Scrubs may be worn over shorts.  Students will be asked to remove their T-shirts or other clothing, when they are in the role of the practice patient.  There is limited time and space to change clothes between classes.  The above-mentioned attire will be required during every lab.  Students should change into required attire prior to attending lab, but such attire may be worn to OPP lectures.  Just remember that students are required to be on time to lab, so please plan ahead.
+        </p>
+        <p class="subinfo">
+            Clothing material and styles, such as, denim, cargo, and corduroy are not acceptable.  Within the bounds of propriety and modesty, clothing must expose sufficient areas of skin (e.g., head, back, neck, and front and back of the torso and extremity regions) to permit adequate visual and palpatory access by your partner/examiner.  Visual and palpatory access of the body area under study in each specific lab is essential to maximize learning.  Failure to be properly dressed for class limits the education of your OPP lab partner.  Students inappropriately dressed for class will be required to change immediately; failure to do so will result in the student being counted as absent and lose any available points assigned to the lab or assessments therein.  University dress code policy applies at all other times.  Clothing left in the OPP lab will be kept for one week and then may be discarded, If not claimed by the owner.
+        </p>
+        <p class="subinfo">
+            * Note:  Students who get cold easily may wear scrubs, a sweat suit, or fleece only during times they are not a “patient”.
+        </p>
+        <p class="subinfo">
+            Students must use appropriate professional hygiene as a courtesy to their fellow students and instructors, i.e., bathing, wearing clean clothing, trimming fingernails, bandaging injuries, wearing a face mask, etc.  Fingernails must be kept short to avoid causing injury or discomfort to your “patients”, damaging treatment tables, and interfering with development of clinical palpatory skills.  To protect tables from damage, shoes, belts, and jewelry are not allowed on treatment tables.  <span class="strong">Please note that the fabric covering treatment tables may be easily damaged by sharp, rough, or pointed objects</span>.
+        </p>
+        <p class="subinfo">
+            Non-latex gloves may also be needed in some labs to perform certain types of manipulation, or when cleaning lab treatment tables, so please always have a supply on hand.
+        </p>
+        <h3>Laboratory Rules</h3>
+        <ol class="root-list">
+            <li>Please be on time and in appropriate attire.  Attendance in OPP lab is mandatory.</li>
+            <li>Please maintain a quiet environment in the lab.  To enhance the learning experience for all, conversations should be quiet, relevant to the subject of the current session, and, in general, kept to a minimum.  Noise may build up rapidly in the lab with lots of people talking, so be courteous to those speaking and considerate of your classmates.</li>
+            <li>Food is not permitted in the laboratory.</li>
+            <li>Bags are not permitted during the laboratory sessions as they are a significant tripping hazard.</li>
+            <li>Beverages are permitted in the laboratory, which must be in a closed or non-spill container to preserve the quality of the lab.</li>
+            <li>Please wash and dry your hands prior to and after palpating/examining your practice partner, either with soap and water at the sink, or with hand sanitizer.</li>
+            <li>Students are required to practice their palpation skills in a professional manner on both male and female lab partners.  It is expected that both genders will be examined during training.</li>
+            <li>Please be aware of your lab partner’s personal space!  Be wary of your partner’s comfort while performing examinations and techniques.  Remember that you and your classmates have provided non-verbal consent to perform appropriate exams and techniques during lab, so it is very important to be aware of potentially sensitive areas and circumstances while in this learning environment.</li>
+            <li>It is recommended that everyone obtain explicit consent, when the task at hand requires the use of palpation, i.e., performing palpation or a procedure in lab.  This could simply be asking if it is okay to work together.  BE ESPECIALLY CAREFUL AT THOSE TIMES SENSITIVE AREAS OF THE BODY ARE BEING DIAGNOSED AND TREATED!  Err on the conservative side; ask for permission.</li>
+            <li>If you feel personally uncomfortable, be sure to let your lab partner know in a nice way.  Then, agree on how to proceed.</li>
+            <li>The OPP lab is a scent-free environment.  Thus, students should be courteous by not wearing perfume, scented lotions, or any other material containing a scented odor.</li>
+            <li>
+                Please keep the treatment table surface clean.  Treatment tables should be cleaned prior to and after each use.  Sanitary wipes are available around the lab to clean tables.  This is one way to help avoid sharing contamination.
+                <ul>
+                    <li>In order to properly clean the tables, remove the facial insert, clean the insert and around the facial opening in the table.</li>
+                </ul>
+            </li>
+            <li>Vinyl covered treatment tables may be easily damaged!  Please be sure you and your lab partner are not wearing sharp, rough, or pointed items, including rings and jewelry.  Remove any such items before getting on the table.</li>
+            <li>Do NOT sit on the head end of treatment tables!  The piston will NOT support your weight, and may break or be damaged.</li>
+            <li>Shoes are not allowed on treatment tables at any time.  Similarly, bare feet are not allowed, except when modalities for the foot and ankle are being taught; therefore, socks are generally required.</li>
+            <li>All paper, trash, and clothing must be removed from the lab or placed in an appropriate trash receptacle, when you leave.</li>
+            <li>Any concerns identified by a student during a laboratory must be brought to the attention of the individual’s lab instructor or the course director before the end of class.  This includes developing pain or incurring side effects, while practicing modalities.  Side effects may include, but are not necessarily limited to, soreness, stiffness, decreased range of motion, dizziness, and headache.  Although every effort is taken to avoid problems, students new to manipulation sometimes perform techniques incorrectly.  Faculty members can help.  Appropriate action will be taken, as needed.</li>
+            <li>Studying materials not germane to the laboratory is an inappropriate use of lab time.  If lab time is spent studying for other classes, rather than participating in the activities being covered in the laboratory, the student may be asked to leave and will lose any points assigned to that laboratory session.  This rule also applies to the use of any other written or electronic material not pertinent to what is being taught and practiced in lab.</li>
+        </ol>
+        <!-- <h3></h3>
+        <p class="subinfo">
+
+        </p>
+        <h3></h3>
+        <p class="subinfo">
+
+        </p>
+        <h3></h3>
+        <p class="subinfo">
+
+        </p> -->
+    </div>
+
+    <div class="content-card learning" id="learning" *ngIf="assignFilter">
+        <h1>Learning Assessments</h1>
+    </div>
+
+    <div class="content-card exam" id="exam" *ngIf="rulesFilter">
+        <h1>Exam Policy</h1>
+    </div>
+
+    <div class="content-card resources half" *ngIf="refFilter">
+        <h1>Required Textbooks</h1>
         <div *ngFor="let resource of classData.resources; let i = index" class="resource">
             <a ngClass="{{resource.type}}" href="{{resource.url}}">{{resource.name}}</a>
         </div>
     </div>
 
-    <div class="form-table resources half">
-        <h1>Resource List</h1>
+    <div class="content-card resources half" *ngIf="refFilter">
+        <h1>Suggested Resources</h1>
         <div *ngFor="let resource of classData.resources; let i = index" class="resource">
             <a ngClass="{{resource.type}}" href="{{resource.url}}">{{resource.name}}</a>
         </div>
     </div>
 
-    <form class="form-table" [formGroup]="questionForm">
+    <div class="content-card learning-resources" id="learning" *ngIf="refFilter">
+        <h1>Student Learning Resources</h1>
+    </div>
+
+    <div class="content-card honor" id="honor" *ngIf="rulesFilter">
+        <h1>Roles, Responsibilities and Honor Code</h1>
+    </div>
+
+    <form class="content-card half" [formGroup]="questionForm" *ngIf="refFilter" id="question">
         <h1>Questions or Comments</h1>
         <beam-input class="field" formControlName="name" [name]="'name'" [field]="questionForm.get('name')" placeholder="Jane Doe"></beam-input>
         <beam-input class="field" formControlName="email" [name]="'email'" [field]="questionForm.get('email')" placeholder="Your@email.com"></beam-input>

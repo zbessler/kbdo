@@ -8,8 +8,10 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/first';
 
 import * as _findIndex from 'lodash/findIndex';
+import * as _filter from 'lodash/filter';
+import * as moment from 'moment';
 
-import { PhysiatrySyllabus, classes, ClassHomework } from '../../core/constants';
+import { ClassData, ClassSyllabus, ClassHomeworks, ClassResources, ClassFaculty } from '../../core/constants';
 
 @Component({
   templateUrl: './class.component.html',
@@ -23,6 +25,13 @@ export class ClassComponent implements OnInit {
     public syllabusData;
     public classData;
     private homeworkData = [];
+    public faculty = {};
+
+    public navOpen = false;
+    public basicFilter = true;
+    public assignFilter = true;
+    public refFilter = true;
+    public rulesFilter = true;
 
 
     constructor(
@@ -35,13 +44,20 @@ export class ClassComponent implements OnInit {
             email: [null, [Validators.required, Validators.email, Validators.maxLength(50)]],
             question: [null, [Validators.required, Validators.minLength(12), Validators.maxLength(50)]],
         });
+
+
     }
 
     ngOnInit() {
-        this.idName = this.route.snapshot.params.classIdName;
+        this.classNumber = this.route.snapshot.params.classNumber;
         this.classData = this.route.snapshot.data.classData[0];
         this.homeworkData = this.classData.homeworks;
         this.syllabusData = this.classData.syllabus;
+
+        this.faculty.chair = _filter(this.classData.faculty, { 'type': 'CHAIR' })[0];
+        this.faculty.faculty = _filter(this.classData.faculty, { 'type': 'FACULTY' });
+        this.faculty.scholar = _filter(this.classData.faculty, { 'type': 'SCHOLAR' });
+        this.faculty.director = _filter(this.classData.faculty, { 'type': 'DIRECTOR' });
 
         this.route.data.subscribe(
             params => {
@@ -52,6 +68,23 @@ export class ClassComponent implements OnInit {
             }
         );
     }
+
+    public toggleNav() {
+        this.navOpen = !this.navOpen;
+    }
+    public toggleBasicFilter() {
+        this.basicFilter = !this.basicFilter;
+    }
+    public toggleAssignFilter() {
+        this.assignFilter = !this.assignFilter;
+    }
+    public toggleRefFilter() {
+        this.refFilter = !this.refFilter;
+    }
+    public toggleRulesFilter() {
+        this.rulesFilter = !this.rulesFilter;
+    }
+
 
 }
 
@@ -65,14 +98,24 @@ export class ClassResolver implements Resolve<any> {
     ) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<any> | Promise<any> | any {
-        if (route.params.classIdName) {
-            return this.db
-                .list('/', ref => ref.orderByChild('idName').equalTo(route.params.classIdName))
-                .valueChanges()
-                .first();
-        } else {
-            return this.db.list('/').valueChanges().first();
-        }
+        let retval = ClassData[route.params.classNumber];
+        retval.syllabus = ClassSyllabus[route.params.classNumber];
+        retval.homeworks = ClassHomeworks[route.params.classNumber];
+        retval.resources = ClassResources[route.params.classNumber];
+        retval.faculty = ClassFaculty[route.params.classNumber];
+
+        return [retval];
+
+        // TODO: Revert to this code for PROD
+
+        // if (route.params.classNumber) {
+        //     return this.db
+        //         .list('/', ref => ref.orderByChild('classNumber').equalTo(route.params.classNumber))
+        //         .valueChanges()
+        //         .first();
+        // } else {
+        //     return this.db.list('/').valueChanges().first();
+        // }
     }
 }
 //
